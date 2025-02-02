@@ -1,0 +1,161 @@
+year,animal_type,cause_of_death,death_count
+2005,Seabirds,Plastic ingestion,993519
+2005,Marine mammals,Plastic ingestion,92378
+2005,Sea Turtles,Plastic ingestion,31409
+2005,Whales,Plastic ingestion,26708
+2005,Fish,Microplastic contamination,2047236
+2005,Dolphins,Entanglement in plastic waste,4446
+2005,Pinnipeds,Entanglement in plastic waste,1341
+2005,Manatees,Plastic ingestion & habitat loss,729
+2006,Seabirds,Plastic ingestion,956120
+2006,Marine mammals,Plastic ingestion,87411
+2006,Sea Turtles,Plastic ingestion,35764
+2006,Whales,Plastic ingestion,34169
+2006,Fish,Microplastic contamination,2130011
+2006,Dolphins,Entanglement in plastic waste,4530
+2006,Pinnipeds,Entanglement in plastic waste,1977
+2006,Manatees,Plastic ingestion & habitat loss,852
+2007,Seabirds,Plastic ingestion,1065337
+2007,Marine mammals,Plastic ingestion,87696
+2007,Sea Turtles,Plastic ingestion,48746
+2007,Whales,Plastic ingestion,39068
+2007,Fish,Microplastic contamination,1804055
+2007,Dolphins,Entanglement in plastic waste,4188
+2007,Pinnipeds,Entanglement in plastic waste,1263
+2007,Manatees,Plastic ingestion & habitat loss,827
+2008,Seabirds,Plastic ingestion,850434
+2008,Marine mammals,Plastic ingestion,96469
+2008,Sea Turtles,Plastic ingestion,34870
+2008,Whales,Plastic ingestion,22956
+2008,Fish,Microplastic contamination,1974074
+2008,Dolphins,Entanglement in plastic waste,5260
+2008,Pinnipeds,Entanglement in plastic waste,1112
+2008,Manatees,Plastic ingestion & habitat loss,834
+2009,Seabirds,Plastic ingestion,1058824
+2009,Marine mammals,Plastic ingestion,84764
+2009,Sea Turtles,Plastic ingestion,33100
+2009,Whales,Plastic ingestion,31116
+2009,Fish,Microplastic contamination,2038611
+2009,Dolphins,Entanglement in plastic waste,4831
+2009,Pinnipeds,Entanglement in plastic waste,1605
+2009,Manatees,Plastic ingestion & habitat loss,721
+2010,Seabirds,Plastic ingestion,873261
+2010,Marine mammals,Plastic ingestion,103235
+2010,Sea Turtles,Plastic ingestion,45695
+2010,Whales,Plastic ingestion,26241
+2010,Fish,Microplastic contamination,1931224
+2010,Dolphins,Entanglement in plastic waste,5078
+2010,Pinnipeds,Entanglement in plastic waste,1134
+2010,Manatees,Plastic ingestion & habitat loss,739
+2011,Seabirds,Plastic ingestion,944421
+2011,Marine mammals,Plastic ingestion,98614
+2011,Sea Turtles,Plastic ingestion,39994
+2011,Whales,Plastic ingestion,33212
+2011,Fish,Microplastic contamination,1953840
+2011,Dolphins,Entanglement in plastic waste,4650
+2011,Pinnipeds,Entanglement in plastic waste,1606
+2011,Manatees,Plastic ingestion & habitat loss,916
+2012,Seabirds,Plastic ingestion,840051
+2012,Marine mammals,Plastic ingestion,89356
+2012,Sea Turtles,Plastic ingestion,43509
+2012,Whales,Plastic ingestion,36351
+2012,Fish,Microplastic contamination,2071418
+2012,Dolphins,Entanglement in plastic waste,5292
+2012,Pinnipeds,Entanglement in plastic waste,1935
+2012,Manatees,Plastic ingestion & habitat loss,907
+2013,Seabirds,Plastic ingestion,1134689
+2013,Marine mammals,Plastic ingestion,108748
+2013,Sea Turtles,Plastic ingestion,40742
+2013,Whales,Plastic ingestion,33384
+2013,Fish,Microplastic contamination,2113036
+2013,Dolphins,Entanglement in plastic waste,5795
+2013,Pinnipeds,Entanglement in plastic waste,1702
+2013,Manatees,Plastic ingestion & habitat loss,853
+2014,Seabirds,Plastic ingestion,1175916
+2014,Marine mammals,Plastic ingestion,103356
+2014,Sea Turtles,Plastic ingestion,48935
+2014,Whales,Plastic ingestion,28800
+2014,Fish,Microplastic contamination,1958367
+2014,Dolphins,Entanglement in plastic waste,5643
+2014,Pinnipeds,Entanglement in plastic waste,1426
+2014,Manatees,Plastic ingestion & habitat loss,919
+2015,Seabirds,Plastic ingestion,1169722
+2015,Marine mammals,Plastic ingestion,106437
+2015,Sea Turtles,Plastic ingestion,30980
+2015,Whales,Plastic ingestion,32558
+2015,Fish,Microplastic contamination,1854297
+2015,Dolphins,Entanglement in plastic waste,5791
+2015,Pinnipeds,Entanglement in plastic waste,1048
+2015,Manatees,Plastic ingestion & habitat loss,858
+2016,Seabirds,Plastic ingestion,872324
+2016,Marine mammals,Plastic ingestion,105402
+2016,Sea Turtles,Plastic ingestion,30072
+2016,Whales,Plastic ingestion,34287
+2016,Fish,Microplastic contamination,2158767
+2016,Dolphins,Entanglement in plastic waste,4539
+2016,Pinnipeds,Entanglement in plastic waste,1873
+2016,Manatees,Plastic ingestion & habitat loss,988
+2017,Seabirds,Plastic ingestion,1120927
+2017,Marine mammals,Plastic ingestion,112320
+2017,Sea Turtles,Plastic ingestion,30997
+2017,Whales,Plastic ingestion,29904
+2017,Fish,Microplastic contamination,2017988
+2017,Dolphins,Entanglement in plastic waste,5349
+2017,Pinnipeds,Entanglement in plastic waste,1508
+2017,Manatees,Plastic ingestion & habitat loss,854
+2018,Seabirds,Plastic ingestion,1125544
+2018,Marine mammals,Plastic ingestion,102431
+2018,Sea Turtles,Plastic ingestion,31911
+2018,Whales,Plastic ingestion,33123
+2018,Fish,Microplastic contamination,2140186
+2018,Dolphins,Entanglement in plastic waste,5408
+2018,Pinnipeds,Entanglement in plastic waste,1869
+2018,Manatees,Plastic ingestion & habitat loss,757
+2019,Seabirds,Plastic ingestion,1092386
+2019,Marine mammals,Plastic ingestion,102723
+2019,Sea Turtles,Plastic ingestion,46027
+2019,Whales,Plastic ingestion,22499
+2019,Fish,Microplastic contamination,2163947
+2019,Dolphins,Entanglement in plastic waste,4531
+2019,Pinnipeds,Entanglement in plastic waste,1235
+2019,Manatees,Plastic ingestion & habitat loss,784
+2020,Seabirds,Plastic ingestion,838520
+2020,Marine mammals,Plastic ingestion,100831
+2020,Sea Turtles,Plastic ingestion,31668
+2020,Whales,Plastic ingestion,27940
+2020,Fish,Microplastic contamination,2112783
+2020,Dolphins,Entanglement in plastic waste,4107
+2020,Pinnipeds,Entanglement in plastic waste,1365
+2020,Manatees,Plastic ingestion & habitat loss,989
+2021,Seabirds,Plastic ingestion,926230
+2021,Marine mammals,Plastic ingestion,80057
+2021,Sea Turtles,Plastic ingestion,48962
+2021,Whales,Plastic ingestion,37926
+2021,Fish,Microplastic contamination,1854731
+2021,Dolphins,Entanglement in plastic waste,4240
+2021,Pinnipeds,Entanglement in plastic waste,1715
+2021,Manatees,Plastic ingestion & habitat loss,964
+2022,Seabirds,Plastic ingestion,977136
+2022,Marine mammals,Plastic ingestion,99751
+2022,Sea Turtles,Plastic ingestion,32835
+2022,Whales,Plastic ingestion,27021
+2022,Fish,Microplastic contamination,2074102
+2022,Dolphins,Entanglement in plastic waste,4215
+2022,Pinnipeds,Entanglement in plastic waste,1568
+2022,Manatees,Plastic ingestion & habitat loss,865
+2023,Seabirds,Plastic ingestion,1053299
+2023,Marine mammals,Plastic ingestion,107122
+2023,Sea Turtles,Plastic ingestion,49479
+2023,Whales,Plastic ingestion,39966
+2023,Fish,Microplastic contamination,2148367
+2023,Dolphins,Entanglement in plastic waste,5614
+2023,Pinnipeds,Entanglement in plastic waste,1975
+2023,Manatees,Plastic ingestion & habitat loss,902
+2024,Seabirds,Plastic ingestion,1100203
+2024,Marine mammals,Plastic ingestion,110324
+2024,Sea Turtles,Plastic ingestion,45689
+2024,Whales,Plastic ingestion,32207
+2024,Fish,Microplastic contamination,2095401
+2024,Dolphins,Entanglement in plastic waste,5056
+2024,Pinnipeds,Entanglement in plastic waste,1597
+2024,Manatees,Plastic ingestion & habitat loss,931
