@@ -3,42 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot with Parallax</title>
+    <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="chatbot">
-        <div id="chatbox"></div>
-        <input type="text" id="userInput" placeholder="Type your question...">
+        <h3>Chat with us!</h3>
+        <div id="chatbox" class="chatbox">
+            <!-- Chat messages will appear here -->
+        </div>
+        <input type="text" id="userInput" placeholder="Type your message here..." />
         <button onclick="sendMessage()">Send</button>
     </div>
+
     <div class="top-bar">
         <a href="#section1" class="button">Home</a>
         <a href="#section2" class="button2">Graph</a>
         <a href="#section3" class="button2">Team</a>
     </div>
+
     <div class="section1" id="section1">
         <div class="blob-container">
-            <div id="typing-effect" class="introtext"></div>
-            <script>
-                function typeText(elementId, text, speed) {
-                    let element = document.getElementById(elementId);
-                    let index = 0;
-                    function type() {
-                        if (index < text.length) {
-                            element.innerHTML += text.charAt(index);
-                            index++;
-                            setTimeout(type, speed);
+            <div id="typing-effect" class="introtext">
+                <script>
+                    function typeText(elementId, text, speed) {
+                        let element = document.getElementById(elementId);
+                        let index = 0;
+                        function type() {
+                            if (index < text.length) {
+                                element.innerHTML += text.charAt(index);
+                                index++;
+                                setTimeout(type, speed);
+                            }
                         }
+                        type();
                     }
-                    type();
-                }
-                window.onload = function() {
-                    const text = "Save the Ocean, Heal the Planet!";
-                    const speed = 100;
-                    typeText("typing-effect", text, speed);
-                };
-            </script>
+                    window.onload = function() {
+                        const text = "Save the Ocean, Heal the Planet!";
+                        const speed = 100;
+                        typeText("typing-effect", text, speed);
+                    };
+                </script>
+            </div>
+            <div class="introtext2">
+                The ocean is <span class="highlight">vital</span> to life on Earth, yet it's facing severe challenges. <span class="highlight">Pollution</span> threatens <span class="highlight">millions</span> of marine species. Together, we can make a difference.
+            </div>
+            <a href="#section3" class="explore-button">Explore ↴</a>
         </div>
         <img class="fishermangif" src="fisherman-unscreen.gif" alt="octopus blowing bubbles">
     </div>
@@ -52,29 +62,32 @@
     </div>
 
     <script>
-    async function sendMessage() {
-        let userInput = document.getElementById("userInput").value;
-        let chatbox = document.getElementById("chatbox");
+        async function sendMessage() {
+            let userInput = document.getElementById("userInput").value;
+            let chatbox = document.getElementById("chatbox");
 
-        if (!userInput.trim()) return;
+            if (!userInput.trim()) return;
 
-        chatbox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+            // Display user message
+            chatbox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
 
-        try {
-            let response = await fetch("http://127.0.0.1:8000/chat/", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ question: userInput })
-            });
+            try {
+                let response = await fetch("http://127.0.0.1:8000/chat/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ question: userInput })
+                });
 
-            let data = await response.json();
-            chatbox.innerHTML += `<p><strong>Bot:</strong> ${data.response}</p>`;
-        } catch (error) {
-            chatbox.innerHTML += `<p style="color:red;"><strong>Error:</strong> Unable to reach chatbot</p>`;
+                let data = await response.json();
+                chatbox.innerHTML += `<p><strong>Bot:</strong> ${data.response}</p>`;
+            } catch (error) {
+                chatbox.innerHTML += `<p style="color:red;"><strong>Error:</strong> Unable to reach chatbot</p>`;
+            }
+
+            document.getElementById("userInput").value = "";
         }
-
-        document.getElementById("userInput").value = "";
-    }
     </script>
 </body>
 </html>

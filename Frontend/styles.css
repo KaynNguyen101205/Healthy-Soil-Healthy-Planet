@@ -1,21 +1,23 @@
+/* General Styles */
 html {
     height: 100vh;
     scroll-behavior: smooth;
 }
 
 body {
-    padding: 0;
     margin: 0;
+    padding: 0;
     background-color: #001122;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
+    font-family: 'Franklin Gothic Heavy', sans-serif;
 }
 
+/* Sections */
 .section1, .section2, .section3 {
     width: 100%;
     min-height: 100vh;
     position: relative;
-    
 }
 
 .section1 {
@@ -31,73 +33,53 @@ body {
     width: 100%;
     height: 100vh;
     position: absolute;
-    background: url("oceantop.jpg") ;
-    background-size: cover;
+    background: url("oceantop.jpg") no-repeat center center/cover;
 }
 
-
-.section2 {
+.section2, .section3 {
     background: #1e53a3;
     position: relative;
-    z-index: 1;
 }
 
-.section3 {
-    background: #1e53a3;
-    position: relative;
-    z-index: 0;
+/* Intro Text */
+.introtext {
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    width: 50%;
+    font-size: 8vh;
+    text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
 }
 
-
-
-.blob-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin-left: -18vw;
-    margin-top: -18vh;
-    width: 65%;
-    height: 95%;
-    background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M748 714q-248 214-390 0t0-294q142-80 390 0t0 294Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22%23444cf7%22 d=%22M748 714q-248 214-390 0t0-294q142-80 390 0t0 294Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
-    background-size: cover; /* Make sure it covers the entire container */
-    background-position: center center; /* Center the background */
-    background-repeat: no-repeat; /* Prevent repetition */
-    animation: slideUp 1.5s ease-out forwards;
-
-}
-
-@keyframes slideUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.introtext2 {
+    font-size: 3vh;
+    color: white;
+    position: absolute;
+    top: 60%;
+    left: 35%;
+    width: 40%;
+    text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
 }
 
 .highlight {
-    color: #00bcd4;  /* Change to your preferred color */
-    font-weight: bold; /* Optional: Makes it stand out more */
+    color: #00bcd4;
+    font-weight: bold;
 }
 
+/* Explore Button */
 .explore-button {
-    position: absolute; /* Allows free movement */
-    top: 78%; /* Adjust as needed to position vertically */
-    left: 45%; /* Adjust as needed to position horizontally */
+    position: absolute;
+    top: 78%;
+    left: 45%;
     background-color: #00bcd4;
     color: white;
-    text-align: center;
     text-decoration: none;
     border-radius: 30px;
-    transition: background-color 0.3s ease;
-    font-family: 'Franklin Gothic Heavy';
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
-
     padding: 2.5vh 4vh;
-    font-size: 24px; 
-
+    font-size: 24px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
 }
 
 .explore-button:hover {
@@ -105,125 +87,9 @@ body {
     transform: scale(1.05);
 }
 
-.introtext {
-    color: white;
-    font-family: 'Franklin Gothic Heavy';
-    text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
-    position: absolute; /* Allows free movement */
-    top: 40%; /* Adjust as needed to position vertically */
-    left: 35%; /* Adjust as needed to position horizontally */
-    width: 50%; /* Adjust width of the text content */
-    font-size: 8vh;
-    /* overflow: hidden; */
-}
-
-
-
-
-.introtext2 {
-    font-size: 3vh;
-    color: white;
-    font-family: 'Franklin Gothic Heavy';
-    text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
-    position: absolute; /* Allows free movement */
-    top: 60%; /* Adjust as needed to position vertically */
-    left: 35%; /* Adjust as needed to position horizontally */
-    width: 40%; /* Adjust width of the text content */
-
-}
-  
-
-
-.magicpattern { 
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: repeat;
-    background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M748 714q-248 214-390 0t0-294q142-80 390 0t0 294Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22%23444cf7%22 d=%22M748 714q-248 214-390 0t0-294q142-80 390 0t0 294Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-  }
-  
-
-.text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    font-family: 'Franklin Gothic Heavy';
-    font-size: 15vw;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
-    transform: translate(-50%, -50%); /* Initial center alignment */
-}
-
-.custom-shape-divider-bottom-1738221783 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-.custom-shape-divider-bottom-1738221783 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 152px;
-}
-
-.custom-shape-divider-bottom-1738221783 .shape-fill {
-    fill: #001122;
-}
-
-.custom-shape-divider-top-1738221980 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-}
-
-.custom-shape-divider-top-1738221980 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 152px;
-}
-
-.custom-shape-divider-top-1738221980 .shape-fill {
-    fill: lightblue;
-}
-
-
-.custom-shape-divider-bottom-1738222988 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-}
-
-.custom-shape-divider-bottom-1738222988 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 90px;
-}
-
-.custom-shape-divider-bottom-1738222988 .shape-fill {
-    fill: lightblue;
-}
-
-
-/* Top Bar Styling */
+/* Top Bar */
 .top-bar {
     display: flex;
-    flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.05);
@@ -235,76 +101,124 @@ body {
     backdrop-filter: blur(5px);
     padding-right: 50px;
     flex-wrap: wrap;
-
 }
 
-/* Button Styling */
+/* Navigation Buttons */
+.button, .button2 {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 4vh;
+    padding: 10px 25px;
+    margin-right: 8vh;
+    margin-left: -4vh;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
+}
+
 .button {
     background-color: #00bcd4;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    font-family: 'Franklin Gothic Heavy';
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
-    
-    font-size: 4vh;
-    padding: 10px 25px;
-    margin-right: 8vh; 
-    margin-left: -4vh;
-    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.button2 {
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    font-family: 'Franklin Gothic Heavy';
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
-    
-    font-size: 4vh;
-    padding: 10px 25px;
-    margin-right: 8vh; 
-    margin-left: -4vh;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-/* Button Hover Effect */
-.button:hover {
-    background-color: gray;
-    transform: scale(1.05);
-}
-.button2:hover {
+.button:hover, .button2:hover {
     background-color: gray;
     transform: scale(1.05);
 }
 
-
-
+/* Fisherman GIF */
 .fishermangif {
     width: 20vw;
     position: absolute;
-    top: 68%;
-    left: 35%;
+    top: 70%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    
 }
 
-
+/* Chatbot UI */
 .chatbot {
     position: fixed;
-    text-align: center;
-    font-family: 'Franklin Gothic Heavy';
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
-    color: white;
     bottom: 20px;
     right: 20px;
     width: 35vh;
     height: 40vh;
-    border-radius: 5%;
     background-color: #222;
+    color: white;
+    border-radius: 5%;
+    text-align: center;
     z-index: 1000;
+    padding: 10px;
+}
+
+/* Shape Dividers */
+.custom-shape-divider-bottom-1738221783,
+.custom-shape-divider-top-1738221980,
+.custom-shape-divider-bottom-1738222988 {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1738221783 {
+    bottom: 0;
+}
+
+.custom-shape-divider-top-1738221980 {
+    top: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1738222988 {
+    bottom: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1738221783 svg,
+.custom-shape-divider-top-1738221980 svg,
+.custom-shape-divider-bottom-1738222988 svg {
+    width: calc(100% + 1.3px);
+    height: 152px;
+    display: block;
+}
+
+.custom-shape-divider-bottom-1738221783 .shape-fill,
+.custom-shape-divider-top-1738221980 .shape-fill,
+.custom-shape-divider-bottom-1738222988 .shape-fill {
+    fill: lightblue;
+}
+
+/* Text Styles */
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 15vw;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+}
+
+/* Animations */
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.blob-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    height: 95%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: slideUp 1.5s ease-out forwards;
 }
