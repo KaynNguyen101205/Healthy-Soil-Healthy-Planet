@@ -35,6 +35,23 @@ body {
     background-size: cover;
 }
 
+.spacer {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    flex-direction: row;
+
+    width: 100%;
+    height: 100vh; /* Ensure it fills the full viewport height */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.layer1 {
+    background-image: url('./stacked-waves-haikei\ \(2\).svg');
+}
+
 
 .section2 {
     background: #002233;
@@ -44,7 +61,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 20px;
+    
 }
 
 
@@ -84,7 +101,7 @@ body {
 }
 
 .highlight {
-    color: #002233;  /* Change to your preferred color */
+    color: #00b4d8;  /* Change to your preferred color */
     font-weight: bold; /* Optional: Makes it stand out more */
 }
 
@@ -92,7 +109,7 @@ body {
     position: absolute; /* Allows free movement */
     top: 78%; /* Adjust as needed to position vertically */
     left: 45%; /* Adjust as needed to position horizontally */
-    background-color: #002233;
+    background-color: #00b4d8;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -107,7 +124,7 @@ body {
 }
 
 .explore-button:hover {
-    background-color: gray;
+    background-color: #0077b6;
     transform: scale(1.05);
 }
 
@@ -179,7 +196,7 @@ body {
 }
 
 .custom-shape-divider-bottom-1738221783 .shape-fill {
-    fill: #001122;
+    fill: #0066FF;
 }
 
 .custom-shape-divider-top-1738221980 {
@@ -246,7 +263,7 @@ body {
 
 /* Button Styling */
 .button {
-    background-color: #0066FF;
+    background-color: #00b4d8;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -280,11 +297,11 @@ body {
 
 /* Button Hover Effect */
 .button:hover {
-    background-color: gray;
+    background-color: #0077b6;
     transform: scale(1.05);
 }
 .button2:hover {
-    background-color: gray;
+    background-color: #0077b6;
     transform: scale(1.05);
 }
 
@@ -326,11 +343,16 @@ body {
     border-radius: 10px;
 
 } */
+
+
 .graph-container {
+    left: 25px;
+    animation: slideUp 1.5s ease-out forwards;
+    position: relative;
+    bottom: 10%;
     width: 40%;
     height: 300px;
-    background: white;
-    padding: 20px;
+    background-image: url('stacked-peaks-haikei.svg');
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -346,45 +368,46 @@ body {
 }
 
 .top-graph {
-    margin-top: 150px;
-    width: 40%;
-    height: 30px;
+    bottom: 10%;
+    width: 100px;
+    height: 300px;
     border-radius: 10px;
     display: flex;
-    justify-content: center; /* Center buttons horizontally */
-    align-items: center; /* Align buttons vertically */
-    gap: 10px; /* Space between buttons */
-    background-color: #0066FF; /* Light background */
-    position: relative; /* Ensure it stays above the graph */
-}
-
-.middle-graph {
-    margin-left: 55px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-.middle-graph .button {
-
-    display: inline-block;
-    border: none;
-    cursor: pointer;
+    flex-direction: column;
+    align-items: center; 
+    gap: 10px;
+    background-image: url('stacked-peaks-haikei.svg');
+    position: relative; 
 
 }
+
+
+
 
 canvas {
     width: 100% !important;
     height: 400px !important; /* ✅ Ensure canvas fits inside the container */
 }
 
-/* canvas {
-    max-width: 100%;
-    height: 400px !important;
-} */
 
 .text2 {
+    height: 0;
+    position: relative;
+    top: 16px;
     text-align: center;
     font-family: 'Franklin Gothic Heavy';
     font-size: 1.2rem;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
+    flex: 0.3;
+}
+
+.text3 {
+    position: relative;
+    bottom: 10px;
+    text-align: center;
+    font-family: 'Franklin Gothic Heavy';
+    font-size: 5rem;
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
     flex: 0.3;
@@ -395,7 +418,7 @@ canvas {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
-    background-color: #002233;
+    background-color: #4FACF7;
 
     padding: 3px 10px;
     border-radius: 10px;
@@ -403,3 +426,40 @@ canvas {
 
 }
 
+.rectangle-image {
+    width: 200px;       /* Set a fixed width */
+    height: 400px;      /* Set a fixed height */
+    object-fit: cover;  /* Ensures the image covers the area without distortion */
+    transition: transform 0.5s ease-in-out;
+}
+
+.rectangle-image:hover {
+    transform: translateY(-10px); /* Raises the image by 10px */
+}
+
+
+
+.image-text {
+    color: white;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
+
+}
+
+.spacer2 {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    flex-direction: row;
+    gap: 100px;
+    width: 100%;
+    height: 100vh; /* Ensure it fills the full viewport height */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.layer2 {
+    background-image: url('./stacked-waves-haikei\ \(2\).svg');
+}

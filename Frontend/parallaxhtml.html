@@ -21,30 +21,43 @@
 
     <div class="top-bar">
         <a href="#section1" class="button">Home</a>
-        <a href="#section2" class="button2">Graph</a>
-        <a href="#section3" class="button2">Team</a>
+        <a href="#section2" class="button2">Images</a>
+        <a href="#section3" class="button2">Graph</a>
     </div>
     <div class="section1" id="section1">
         <div class="blob-container">
             <div id="typing-effect" class="introtext">
                 
                 <script>
-                    function typeText(elementId, text, speed) {
+                    function typeText(elementId, texts, speed) {
                         let element = document.getElementById(elementId);
                         let index = 0;
+                        let textIndex = 0;
+                
                         function type() {
-                            if (index < text.length) {
-                                element.innerHTML += text.charAt(index);
-                                index++;
-                                setTimeout(type, speed);
+                            if (index === texts[textIndex].length) {
+                                element.innerHTML = "";
+                                index = 0;
+                                textIndex = (textIndex + 1) % texts.length; // Move to the next phrase, loop back to the first if at the end
                             }
+                            
+                            element.innerHTML += texts[textIndex].charAt(index);
+                            index++;
+                            setTimeout(type, speed);
+                            const pauseDuration = 800;
                         }
                         type();
                     }
+                
                     window.onload = function() {
-                        const text = "Save the Ocean, Heal the Planet!";
-                        const speed = 100;
-                        typeText("typing-effect", text, speed);
+                        const phrases = [
+                            "Save the Ocean, Heal the Planet!",
+                            "Together, We Can Protect Marine Life.",
+                            "Pollution is Killing Our Oceans.",
+                            "Join Us in the Fight for Clean Seas!"
+                        ];
+                        const speed = 150;
+                        typeText("typing-effect", phrases, speed);
                     };
                 </script>
             </div>
@@ -64,32 +77,42 @@
         
     </div>
     <div class="section2" id="section2">
-        <div class="custom-shape-divider-top-1738221980">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
-            </svg>
+        <div class="spacer2 layer2">
+            <div class="image-container">
+                <img src="midocean.jpg" alt="Image 1" class="rectangle-image">
+                <p class="image-text">Text for Image 1</p>
+            </div>
+            <div class="image-container">
+                <img src="midocean.jpg" alt="Image 2" class="rectangle-image">
+                <p class="image-text">Text for Image 2</p>
+            </div>
+            <div class="image-container">
+                <img src="midocean.jpg" alt="Image 3" class="rectangle-image">
+                <p class="image-text">Text for Image 3</p>
+            </div>
         </div>
-        <div class="top-graph">
-            <label class="text2" for="startYear">Start Year:</label>
-            <input type="number" id="startYear" min="2005" max="2025" value="2005">
-    
-            <label class="text2" for="endYear">End Year:</label>
-            <input type="number" id="endYear" min="2005" max="2025" value="2025">
-        </div>
-        <div class="middle-graph">
-            <button class="button" onclick="updateGraph()">Update Graph</button>
-        </div>
-        <div class="graph-container">
-            <canvas id="seaAnimalDeathsChart"></canvas>
-        </div>
+
     </div>
 
     <div class="section3" id="section3">
-        <div class="text">Team</div>
         <div class="custom-shape-divider-bottom-1738221783">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
             </svg>
+        </div>
+
+        <div class="spacer">
+            
+            <div class="top-graph">
+                <label class="text2" for="startYear">Start Year:</label>
+                <input type="number" id="startYear" min="2005" max="2025" value="2005">
+        
+                <label class="text2" for="endYear">End Year:</label>
+                <input type="number" id="endYear" min="2005" max="2025" value="2025">
+            </div>
+            <div class="graph-container">
+                <canvas id="seaAnimalDeathsChart"></canvas>
+            </div>
         </div>
     </div>
 
@@ -121,5 +144,7 @@
             document.getElementById("userInput").value = "";
         }
     </script>
+
+    
 </body>
 </html>
