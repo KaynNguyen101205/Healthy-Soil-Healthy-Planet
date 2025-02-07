@@ -9,14 +9,36 @@
     <script src="graph.js"></script>
 </head>
 <body>
+    <!-- <div id="chat-icon">💬</div> -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let chatContainer = document.getElementById("chat-container");
+            let chatIcon = document.getElementById("chat-icon");
+    
+            if (!chatContainer || !chatIcon) {
+                console.error("Chatbot elements not found!");
+                return;
+            }
+    
+            // Fix: Add event listener after elements load
+            chatIcon.addEventListener("click", function () {
+                console.log("Chat icon clicked!"); // Debugging
+                chatContainer.classList.toggle("active");
+            });
+        });
+    </script>
 
-    <div class="chatbot">
-        <h3>Chat with us!</h3>
-        <div id="chatbox" class="chatbox">
-            <!-- Chat messages will appear here -->
+    <div id="chat-icon">💬</div>
+    <div id="chat-container">
+        <div id="chat-header">
+            Ocean Chatbot
+            <button id="close-chat">↓</button>
         </div>
-        <input type="text" id="userInput" placeholder="Type your message here..." />
-        <button onclick="sendMessage()">Send</button>
+        <div id="chat-log"></div>
+        <div id="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
     </div>
 
     <div class="top-bar">
@@ -117,34 +139,85 @@
     </div>
 
     <script>
-        async function sendMessage() {
-            let userInput = document.getElementById("userInput").value;
-            let chatbox = document.getElementById("chatbox");
-
-            if (!userInput.trim()) return;
-
-            // Display user message
-            chatbox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
-
-            try {
-                let response = await fetch("http://127.0.0.1:8001/chat/", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({ question: userInput })
-                });
-
-                let data = await response.json();
-                chatbox.innerHTML += `<p><strong>Bot:</strong> ${data.response}</p>`;
-            } catch (error) {
-                chatbox.innerHTML += `<p style="color:red;"><strong>Error:</strong> Unable to reach chatbot</p>`;
+        document.addEventListener("DOMContentLoaded", function () {
+            let chatContainer = document.getElementById("chat-container");
+            let chatIcon = document.getElementById("chat-icon");
+            let closeButton = document.getElementById("close-chat");
+    
+            // Open chatbot when clicking the chat icon
+            chatIcon.addEventListener("click", function () {
+                chatContainer.classList.add("active"); // Add class to make it visible
+            });
+    
+            // Close chatbot when clicking the close button
+            closeButton.addEventListener("click", function () {
+                chatContainer.classList.remove("active"); // Hide chatbot
+            });
+    
+            // Prevent closing chatbot when clicking inside it
+            chatContainer.addEventListener("click", function (event) {
+                event.stopPropagation();
+            });
+    
+            // Close chatbot when clicking outside of it
+            document.addEventListener("click", function (event) {
+                if (!chatContainer.contains(event.target) && event.target !== chatIcon) {
+                    chatContainer.classList.remove("active");
+                }
+            });
+    
+            // Send message functionality
+            document.getElementById("send-button").addEventListener("click", sendMessage);
+            document.getElementById("user-input").addEventListener("keypress", function (event) {
+                if (event.key === "Enter") sendMessage();
+            });
+    
+            async function sendMessage() {
+                let userInput = document.getElementById("user-input");
+                let chatLog = document.getElementById("chat-log");
+    
+                if (!userInput || !chatLog) {
+                    console.error("Chat elements not found");
+                    return;
+                }
+    
+                if (userInput.value.trim() === "") return;
+    
+                // Display user message
+                let userMessage = document.createElement("div");
+                userMessage.classList.add("message", "user-message");
+                userMessage.textContent = userInput.value;
+                chatLog.appendChild(userMessage);
+    
+                // Fetch response from chatbot API
+                try {
+                    let response = await fetch("http://127.0.0.1:8001/chat/", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ question: userInput.value })
+                    });
+    
+                    let data = await response.json();
+    
+                    // Display bot response
+                    let botMessage = document.createElement("div");
+                    botMessage.classList.add("message", "bot-message");
+                    botMessage.textContent = "🐬 " + data.response;
+                    chatLog.appendChild(botMessage);
+                } catch (error) {
+                    console.error("Error connecting to chatbot:", error);
+                    let errorMessage = document.createElement("div");
+                    errorMessage.classList.add("message", "bot-message");
+                    errorMessage.textContent = "🚨 Error: Unable to connect to chatbot";
+                    chatLog.appendChild(errorMessage);
+                }
+    
+                // Clear input and scroll down
+                userInput.value = "";
+                chatLog.scrollTop = chatLog.scrollHeight;
             }
-
-            document.getElementById("userInput").value = "";
-        }
-    </script>
-
+        });
+    </script>    
     
 </body>
 </html>

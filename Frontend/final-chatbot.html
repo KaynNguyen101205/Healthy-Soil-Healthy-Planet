@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #chat-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #0077be;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        #chat-container {
+            width: 275px;
+            height: 375px;
+            background-color: white;
+            border-radius: 15px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            flex-direction: column;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        #chat-header {
+            background-color: #005580;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+        #close-chat {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #chat-log {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .message {
+            max-width: 70%; 
+            padding: 8px 12px; 
+            border-radius: 15px; 
+            margin: 5px 0; 
+            word-wrap: break-word; 
+            white-space: normal; 
+            font-size: 16px; 
+        }
+        .user-message {
+            background-color: rgb(0, 120, 254);
+            color: rgb(252, 252, 251);
+            text-align: right;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        .bot-message {
+            background-color: #b4b4bc; 
+            color: black; 
+            align-self: flex-start; 
+            text-align: left; 
+            border-bottom-left-radius: 5px;
+        }
+        #chat-input {
+            display: flex;
+            padding: 10px;
+            background-color: #eeeeee;
+        }
+        #user-input {
+            flex: 1;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+        #send-button {
+            padding: 5px 10px;
+            margin-left: 5px;
+            background-color: #00aaff;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-icon">💬</div>
+    <div id="chat-container">
+        <div id="chat-header">
+            Ocean Chatbot
+            <button id="close-chat">↓</button>
+        </div>
+        <div id="chat-log"></div>
+        <div id="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    
+    <script>
+        let chatContainer = document.getElementById("chat-container");
+        let chatIcon = document.getElementById("chat-icon");
+        let closeButton = document.getElementById("close-chat");
+    
+        // Show chat on hover
+        chatIcon.addEventListener("mouseenter", function() {
+            chatContainer.style.display = "flex";
+        });
+    
+        // Close chat on button click
+        closeButton.addEventListener("click", function() {
+            chatContainer.style.display = "none";
+        });
+    
+        document.getElementById("send-button").addEventListener("click", sendMessage);
+        document.getElementById("user-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") sendMessage();
+        });
+    
+        async function sendMessage() {
+            let userInput = document.getElementById("user-input");
+            let chatLog = document.getElementById("chat-log");
+            
+            if (userInput.value.trim() === "") return;
+    
+            // Display User Message
+            let userMessage = document.createElement("div");
+            userMessage.classList.add("message", "user-message");
+            userMessage.textContent = userInput.value;
+            chatLog.appendChild(userMessage);
+    
+            // Fetch Response from Chatbot API
+            try {
+                let response = await fetch("http://127.0.0.1:8001/chat/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ question: userInput.value })
+                });
+    
+                let data = await response.json();
+    
+                // Display Bot Response
+                let botMessage = document.createElement("div");
+                botMessage.classList.add("message", "bot-message");
+                botMessage.textContent = "🐬 " + data.response; // Add ocean-related touch
+                chatLog.appendChild(botMessage);
+    
+            } catch (error) {
+                // Handle API Errors
+                let botMessage = document.createElement("div");
+                botMessage.classList.add("message", "bot-message");
+                botMessage.textContent = "🚨 Error: Unable to connect to chatbot";
+                chatLog.appendChild(botMessage);
+            }
+    
+            // Clear Input and Scroll Down
+            userInput.value = "";
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+    </script>
+</body>
+</html>
