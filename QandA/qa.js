@@ -33,16 +33,30 @@ function loadQuestions() {
 
         data.forEach(question => {
             let listItem = document.createElement("li");
+            listItem.classList.add("question-item");
 
-            // ✅ Display username and question
+            // ✅ Wrapping each question and answer separately
             listItem.innerHTML = `
-                <b>${question.username} asks:</b> ${question.question_text}
-                <button onclick="toggleAnswerBox(${question.id})">💬 Answer</button>
-                <div id="answer-box-${question.id}" class="answer-box" style="display:none;">
-                    <input type="text" id="answer-input-${question.id}" placeholder="Your answer...">
-                    <button onclick="submitAnswer(${question.id})">Submit Answer</button>
+                <div class="question-container">
+                    <!-- 🎤 Question Box -->
+                    <div class="question-box">
+                        <p><strong>${question.username} asks:</strong></p>
+                        <p>${question.question_text}</p>
+                        <button onclick="toggleAnswerBox(${question.id})">💬 Answer</button>
+                    </div>
+
+                    <!-- ✏️ Answer Input (Hidden Initially) -->
+                    <div id="answer-box-${question.id}" class="answer-input-box" style="display:none;">
+                        <input type="text" id="answer-input-${question.id}" placeholder="Your answer...">
+                        <button onclick="submitAnswer(${question.id})">Submit Answer</button>
+                    </div>
+
+                    <!-- ✅ Answer Box (Below Question) -->
+                    <div class="answer-box">
+                        <p><strong>Answer:</strong></p>
+                        <p>${question.answer_text ? question.answer_text : "<i>No answer yet.</i>"}</p>
+                    </div>
                 </div>
-                <p><strong>Answer:</strong> ${question.answer_text ? question.answer_text : "No answer yet"}</p>
             `;
 
             questionList.appendChild(listItem);
@@ -50,13 +64,11 @@ function loadQuestions() {
     })
     .catch(error => console.error("Error fetching questions:", error));
 }
+
+// ✅ Toggle Answer Input Below the Question
 function toggleAnswerBox(questionId) {
     let answerBox = document.getElementById(`answer-box-${questionId}`);
-    if (answerBox.style.display === "none") {
-        answerBox.style.display = "block";
-    } else {
-        answerBox.style.display = "none";
-    }
+    answerBox.style.display = (answerBox.style.display === "none") ? "block" : "none";
 }
 function submitAnswer(questionId) {
     let answerText = document.getElementById(`answer-input-${questionId}`).value.trim();

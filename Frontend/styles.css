@@ -629,45 +629,65 @@ canvas {
     object-fit: cover;
     border-radius: 10px;
 }
+
 .image-container {
     position: relative;
     width: 200px;
-    height: 400px;
+    height: 350px;
     perspective: 1000px;
     border-radius: 10px;
+    margin: 5px; /* Reduced margin */
+    display: inline-block;
 }
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Keeps responsiveness */
+    gap: 1px; /* Reduced gap between cards */
+    justify-content: center; /* Aligns them neatly */
+}
+
 .card {
     width: 100%;
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.6s ease-in-out;
-    border-radius: 10px
+    border-radius: 10px;
 }
+
 .image-container:hover .card {
     transform: rotateY(180deg);
 }
+
 .card-front, .card-back {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 10px
+    border-radius: 10px;
 }
+
 .card-front {
     background: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px
+    border-radius: 10px;
 }
+
 .card-back {
-    background: white;
+    background: rgb(0, 0, 0);
     transform: rotateY(180deg);
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px
+    border-radius: 10px;
+    cursor: pointer; 
+    font-family: Arial, sans-serif; /* Standardized font */
+    text-align: center; /* Center text */
+    padding: 10px; /* Add spacing for readability */
+    color: white; /* Ensure good contrast */
 }
 
 .icon {
