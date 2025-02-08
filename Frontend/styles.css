@@ -479,7 +479,7 @@ body {
 
 /* User Message Style */
 .user-message {
-    background-color: rgb(0, 120, 254);
+    background-color: #388E3C;
     color: white;
     text-align: right;
     align-self: flex-end;
