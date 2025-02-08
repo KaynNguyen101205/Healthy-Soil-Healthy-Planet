@@ -49,7 +49,7 @@ body {
 }
 
 .layer1 {
-    background-image: url('./stacked-waves-haikei\ \(2\).svg');
+    background-image: url('./stacked-waves-haikei\ \(4\).svg');
 }
 
 /*awdawd*/
@@ -66,7 +66,7 @@ body {
 
 
 .section3 {
-    background: #002233;
+    background: #543A14;
     position: relative;
     z-index: 0;
 }
@@ -81,11 +81,10 @@ body {
     margin-top: 3%;
     width: 55%;
     height: 80%;
-    background-image: url('blob3.svg');
+    background-image: url('blob\ \(2\).svg');
     background-size: 80% auto; /* Scales width to 80% while keeping aspect ratio */
     background-position: center center; /* Center the background */
     background-repeat: no-repeat; /* Prevent repetition */
-    transition: background-image 1s ease-in-out; /* Add transition to animate the background */
 }
 
 @keyframes slideUp {
@@ -193,7 +192,7 @@ body {
 }
 
 .custom-shape-divider-bottom-1738221783 .shape-fill {
-    fill: #0066FF;
+    fill: #77B254;
 }
 
 .custom-shape-divider-top-1738221980 {
@@ -236,7 +235,7 @@ body {
 }
 
 .custom-shape-divider-bottom-1738222988 .shape-fill {
-    fill: #5B913B;
+    fill: #77B254;
 }
 
 
@@ -317,7 +316,7 @@ body {
 #chat-icon {
     width: 66px;
     height: 66px;
-    background-color: #0077be;
+    background-color: #4CAF50;
     border-radius: 50%;
     position: fixed;
     bottom: 20px;
@@ -355,7 +354,7 @@ body {
 
 /* Chatbot Header */
 #chat-header {
-    background-color: #00aaff;
+    background-color: #388E3C;
     color: white;
     padding: 12px;
     text-align: center;
@@ -406,7 +405,7 @@ body {
 #send-button {
     padding: 8px 12px;
     margin-left: 5px;
-    background-color: #00aaff;
+    background-color: #388E3C;
     border: none;
     color: white;
     cursor: pointer;
@@ -526,6 +525,7 @@ canvas {
 }
 
 
+
 .text2 {
     height: 0;
     position: relative;
@@ -563,14 +563,46 @@ canvas {
 }
 
 .rectangle-image {
-    width: 200px;       /* Set a fixed width */
-    height: 400px;      /* Set a fixed height */
-    object-fit: cover;  /* Ensures the image covers the area without distortion */
-    transition: transform 0.5s ease-in-out;
+    width: 200px;       
+    height: 400px;      
+    object-fit: cover;  
 }
 
-.rectangle-image:hover {
-    transform: translateY(-10px); /* Raises the image by 10px */
+.image-container {
+    position: relative;
+    width: 200px;
+    height: 400px;
+    perspective: 1000px;
+}
+
+/* Flip effect applies to the .card */
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+/* Flip when hovering */
+.image-container:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background: white;
+}
+
+.card-back {
+    background: white;
+    transform: rotateY(180deg);
 }
 
 
@@ -597,5 +629,5 @@ canvas {
 }
 
 .layer2 {
-    background-image: url('./stacked-waves-haikei\ \(2\).svg');
+    background-image: url('./stacked-waves-haikei\ \(6\).svg');
 }
