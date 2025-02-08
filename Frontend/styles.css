@@ -81,10 +81,12 @@ body {
     margin-top: 3%;
     width: 55%;
     height: 80%;
-    background-image: url('blob\ \(2\).svg');
+    /* background-image: url('blob\ \(2\).svg'); */
     background-size: 80% auto; /* Scales width to 80% while keeping aspect ratio */
     background-position: center center; /* Center the background */
     background-repeat: no-repeat; /* Prevent repetition */
+    filter: blur(0.05px);
+    
 }
 
 @keyframes slideUp {
@@ -105,8 +107,8 @@ body {
 
 .explore-button {
     position: absolute; /* Allows free movement */
-    top: 68%; /* Adjust as needed to position vertically */
-    left: 35%; /* Adjust as needed to position horizontally */
+    top: 69%; /* Adjust as needed to position vertically */
+    left: 36%; /* Adjust as needed to position horizontally */
     background-color: #77B254;
     color: white;
     text-align: center;
@@ -115,10 +117,8 @@ body {
     transition: background-color 0.3s ease;
     font-family: 'Franklin Gothic Heavy';
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
-
     padding: 2.5vh 4vh;
     font-size: 24px; 
-
 }
 
 .explore-button:hover {
@@ -131,24 +131,21 @@ body {
     font-family: 'Franklin Gothic Heavy';
     text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
     position: absolute; /* Allows free movement */
-    top: 15%; /* Adjust as needed to position vertically */
-    left: 30%; /* Adjust as needed to position horizontally */
-    width: 50%; /* Adjust width of the text content */
-    font-size: 8vh;
+    top: 25%; /* Adjust as needed to position vertically */
+    left: 31%; /* Adjust as needed to position horizontally */
+    width: 45%; /* Adjust width of the text content */
+    font-size: 5vh;
     /* overflow: hidden; */
 }
-
-
 .introtext2 {
-    font-size: 3vh;
+    font-size: 2.7vh;
     color: white;
     font-family: 'Franklin Gothic Heavy';
     text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
     position: absolute; /* Allows free movement */
-    top: 40%; /* Adjust as needed to position vertically */
-    left: 30%; /* Adjust as needed to position horizontally */
+    top: 46%; /* Adjust as needed to position vertically */
+    left: 31%; /* Adjust as needed to position horizontally */
     width: 40%; /* Adjust width of the text content */
-
 }
   
 
@@ -247,7 +244,7 @@ body {
     align-items: center;
     background-color: rgba(0, 0, 0, 0.05);
     height: 10vh;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -563,69 +560,63 @@ canvas {
 }
 
 .rectangle-image {
-    width: 200px;       
-    height: 400px;      
-    object-fit: cover;  
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-
 .image-container {
     position: relative;
     width: 200px;
     height: 400px;
     perspective: 1000px;
 }
-
-/* Flip effect applies to the .card */
 .card {
     width: 100%;
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.6s;
+    transition: transform 0.6s ease-in-out;
 }
-
-/* Flip when hovering */
 .image-container:hover .card {
     transform: rotateY(180deg);
 }
-
 .card-front, .card-back {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
 }
-
 .card-front {
     background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 .card-back {
     background: white;
     transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-
-
 .image-text {
     color: white;
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
-
 }
-
 .spacer2 {
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    flex-direction: row;
-    gap: 100px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 30px; 
     width: 100%;
-    height: 100vh; /* Ensure it fills the full viewport height */
+    height: 100vh; 
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    padding: 20px; 
 }
 
 .layer2 {
@@ -769,4 +760,63 @@ canvas {
     font-weight: bold;
     color: yellow;
     text-align: center;
+}
+
+
+
+
+/* 📝 Farmer Q&A Section */
+#qa-section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.qa-container {
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #444;
+    color: white;
+    border-radius: 10px;
+    width: 60%;
+    text-align: center;
+}
+
+.qa-container input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.qa-container button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.qa-container button:hover {
+    background-color: #0056b3;
+}
+
+.qa-list {
+    margin: 20px auto;
+    width: 60%;
+    text-align: left;
+}
+
+.qa-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.qa-list ul li {
+    background-color: #eee;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
 }

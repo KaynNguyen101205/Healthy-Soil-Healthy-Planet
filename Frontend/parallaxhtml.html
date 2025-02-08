@@ -63,56 +63,104 @@
         <a href="#section3" class="button2">Graph</a>
         <a href="#map-section" class="button">Erosion Map</a>
         <a href="#section4" class="button4">Quiz</a>
+        <a href="#qa-section" class="button5">Quiz</a>>
     </div>
+
+
     <div class="section1" id="section1">
         <div class="blob-container">
-            <div class="introtext">Erosion is an issue.</div>
-            <div class="introtext2">
-                Soil is <span class="highlight">vital</span> to life on Earth, yet it's facing severe challenges. <span class="highlight">Erosion</span> threatens fertile land, ecosystems, and food security. Together, we can make a <span class="highlight">difference</span>.
+            <svg viewBox="0 0 500 500" id="blobSvg">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color: #77B254"></stop>
+                        <stop offset="100%" style="stop-color: #543A14"></stop>
+                    </linearGradient>
+                </defs>
+                <path id="blob" fill="url(#gradient)">
+                    <animate
+                        attributeName="d"
+                        dur="5s"
+                        repeatCount="indefinite"
+                        values="M433.5,286.5Q401,323,384.5,360.5Q368,398,332,425Q296,452,254,434Q212,416,156,427Q100,438,96.5,382Q93,326,76.5,288Q60,250,50.5,199.5Q41,149,86,125Q131,101,163.5,56.5Q196,12,240.5,55Q285,98,315.5,113.5Q346,129,392.5,144Q439,159,452.5,204.5Q466,250,433.5,286.5Z;
+                        M476.47608,302.18069Q466.84323,354.36138,427.717,389.17493Q388.59078,423.98848,345.19309,449.96456Q301.79539,475.94065,254.01816,458.04871Q206.24092,440.15677,160.19885,430.12046Q114.15677,420.08415,106.81355,371.20461Q99.47032,322.32507,84.97032,286.16253Q70.47032,250,59.58415,201.58415Q48.69797,153.16829,93.68645,132.18069Q138.67493,111.19309,176.29539,102.44641Q213.91585,93.69972,250.5,90.38042Q287.08415,87.06111,328.40922,93.68157Q369.73429,100.30203,415.72276,124.19309Q461.71124,148.08415,473.91009,199.04207Q486.10894,250,476.47608,302.18069Z;
+                        M447.77636,297.75377Q447.9535,345.50753,414.69974,380.41519Q381.44597,415.32285,338.50753,433.2996Q295.56909,451.27636,247.59987,461Q199.63065,470.72364,163.68468,436.90013Q127.7387,403.07662,92.04584,373.18468Q56.35297,343.29273,33.3605,296.64637Q10.36803,250,61.68468,216.95416Q113.00132,183.90832,120.13131,139.96169Q127.2613,96.01506,162.63818,58.76064Q198.01506,21.50621,252.09234,13.75998Q306.16962,6.01374,340.86182,49.6683Q375.55403,93.32285,416.59234,121.75377Q457.63065,150.18468,452.61493,200.09234Q447.59921,250,447.77636,297.75377Z;
+                        M407.5,289Q411,328,378,348.5Q345,369,324,425.5Q303,482,259,443.5Q215,405,174.5,400.5Q134,396,93.5,370.5Q53,345,39,297.5Q25,250,28,197.5Q31,145,85,128Q139,111,169,69.5Q199,28,243.5,55.5Q288,83,339.5,78Q391,73,405.5,120.5Q420,168,412,209Q404,250,407.5,289Z;
+                        M433.5,286.5Q401,323,384.5,360.5Q368,398,332,425Q296,452,254,434Q212,416,156,427Q100,438,96.5,382Q93,326,76.5,288Q60,250,50.5,199.5Q41,149,86,125Q131,101,163.5,56.5Q196,12,240.5,55Q285,98,315.5,113.5Q346,129,392.5,144Q439,159,452.5,204.5Q466,250,433.5,286.5Z;"
+                    ></animate>
+                </path>
+            </svg>
+            <div class="content">
+                <!-- Your text and other content go here -->
+                <div class="introtext">Healthy <span class="highlight">Soil</span>, Healthy <span class="highlight">Planet</span>! 🌍</div>
+                <div class="introtext2">
+                    Soil is <span class="highlight">vital</span> to life on Earth, yet it's facing severe challenges. <span class="highlight">Erosion</span> threatens fertile land, ecosystems, and food security. Together, we can make a <span class="highlight">difference</span>.
+                </div>
+                <a href="#section3" class="explore-button">Explore ↴</a>
             </div>
-            <a href="#section3" class="explore-button">Explore ↴</a>
         </div>
         
+
         <div class="custom-shape-divider-bottom-1738222988">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+
             </svg>
         </div>
-        
     </div>
+
     <div class="section2" id="section2">
         <div class="spacer2 layer2">
             <div class="image-container">
                 <div class="card">
-                    <div class="card-front">
-                        <img src="midocean.jpg" alt="Image 1" class="rectangle-image">
+                    <div class="card-front" style="background-color: #ff5733;">
+                        <p>Quiz 1</p>
                     </div>
                     <div class="card-back">
-                        <img src="midocean.jpg" alt="Image 1" class="rectangle-image">
+                        <a href="quiz1.html">Take Quiz 1</a>
                     </div>
                 </div>
             </div>
     
             <div class="image-container">
                 <div class="card">
-                    <div class="card-front">
-                        <img src="midocean.jpg" alt="Image 2" class="rectangle-image">
+                    <div class="card-front" style="background-color: #33c3ff;">
+                        <p>Quiz 2</p>
                     </div>
                     <div class="card-back">
-                        <img src="midocean.jpg" alt="Image 2" class="rectangle-image">
+                        <a href="quiz2.html">Take Quiz 2</a>
                     </div>
                 </div>
             </div>
     
             <div class="image-container">
                 <div class="card">
-                    <div class="card-front">
-                        <img src="midocean.jpg" alt="Image 3" class="rectangle-image">
+                    <div class="card-front" style="background-color: #33ff57;">
+                        <p>Quiz 3</p>
                     </div>
                     <div class="card-back">
-                        <img src="midocean.jpg" alt="Image 3" class="rectangle-image">
+                        <a href="quiz3.html">Take Quiz 3</a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Additional rectangles -->
+            <div class="image-container">
+                <div class="card">
+                    <div class="card-front" style="background-color: #ff33a8;">
+                        <p>Quiz 4</p>
+                    </div>
+                    <div class="card-back">
+                        <a href="quiz4.html">Take Quiz 4</a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="image-container">
+                <div class="card">
+                    <div class="card-front" style="background-color: #ffd633;">
+                        <p>Quiz 5</p>
+                    </div>
+                    <div class="card-back">
+                        <a href="quiz5.html">Take Quiz 5</a>
                     </div>
                 </div>
             </div>
@@ -243,5 +291,24 @@
             <a href="erosion-info.html" class="info-button">Erosion Science Info</a>
         </div>
     <section>
+
+    <section id="qa-section">
+        <h2>👨‍🌾 Ask Your Farming & Erosion Questions</h2>
+        <p>Have a question about soil erosion, crops, or farming techniques? Ask below and get answers from experts!</p>
+    
+        <div class="qa-container">
+            <h3>📩 Submit Your Question</h3>
+            <input type="text" id="question-input" placeholder="Type your question here..." />
+            <button onclick="submitQuestion()">Submit</button>
+        </div>
+    
+        <div class="qa-list">
+            <h3>📜 Previously Asked Questions</h3>
+            <ul id="question-list">
+                <!-- Questions will appear here dynamically -->
+            </ul>
+        </div>
+        <script src="qa.js"></script>
+    </section>
 </body>
 </html>

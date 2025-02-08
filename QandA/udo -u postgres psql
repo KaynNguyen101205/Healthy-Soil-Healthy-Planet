@@ -1,0 +1,18 @@
+          rolname          | rolsuper | rolcreatedb 
+---------------------------+----------+-------------
+ pg_database_owner         | f        | f
+ pg_read_all_data          | f        | f
+ pg_write_all_data         | f        | f
+ pg_monitor                | f        | f
+ pg_read_all_settings      | f        | f
+ pg_read_all_stats         | f        | f
+ pg_stat_scan_tables       | f        | f
+ pg_read_server_files      | f        | f
+ pg_write_server_files     | f        | f
+ pg_execute_server_program | f        | f
+ pg_signal_backend         | f        | f
+ postgres                  | t        | t
+ namkhanh101205            | f        | f
+ namkhanh101205hi          | f        | f
+(14 rows)
+
