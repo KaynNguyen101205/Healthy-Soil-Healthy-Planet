@@ -61,8 +61,8 @@
         <a href="#section1" class="button">Home</a>
         <a href="#section2" class="button2">Images</a>
         <a href="#section3" class="button2">Graph</a>
-        <a href="#map-section" class="button">Erosion Map</a>
-        <a href="#section4" class="button4">Quiz</a>
+        <a href="#map-section" class="button2">Erosion Map</a>
+        <a href="#section4" class="button2">Quiz</a>
         <a href="#qa-section" class="button5">Quiz</a>>
     </div>
 
@@ -111,59 +111,45 @@
         <div class="spacer2 layer2">
             <div class="image-container">
                 <div class="card">
-                    <div class="card-front" style="background-color: #ff5733;">
-                        <p>Quiz 1</p>
+                    <div class="card-front" style="background-color: RGB(88, 57, 39);">
+                        <img src="crawfish.png" alt="Quiz 1 Icon" class="icon">
                     </div>
-                    <div class="card-back">
-                        <a href="quiz1.html">Take Quiz 1</a>
-                    </div>
+                    <a href="crawfish-erosion-info.html" class="card-back">
+                    </a>
                 </div>
             </div>
     
             <div class="image-container">
                 <div class="card">
-                    <div class="card-front" style="background-color: #33c3ff;">
-                        <p>Quiz 2</p>
+                    <div class="card-front" style="background-color: RGB(194, 178, 128);">
+                        <img src="rock.png" alt="Quiz 2 Icon" class="icon">
                     </div>
-                    <div class="card-back">
-                        <a href="quiz2.html">Take Quiz 2</a>
-                    </div>
+                    <a href="general-erosion-quiz.html" class="card-back">
+                    </a>
                 </div>
             </div>
     
             <div class="image-container">
                 <div class="card">
-                    <div class="card-front" style="background-color: #33ff57;">
-                        <p>Quiz 3</p>
+                    <div class="card-front" style="background-color: RGB(34, 139, 34);">
+                        <img src="quiz.png" alt="Quiz 2 Icon" class="icon">
                     </div>
-                    <div class="card-back">
-                        <a href="quiz3.html">Take Quiz 3</a>
-                    </div>
+                    <a href="crawfish-erosion-quiz.html" class="card-back">
+                    </a>
                 </div>
             </div>
     
             <!-- Additional rectangles -->
             <div class="image-container">
                 <div class="card">
-                    <div class="card-front" style="background-color: #ff33a8;">
+                    <div class="card-front" style="background-color: RGB(0, 105, 148);">
                         <p>Quiz 4</p>
                     </div>
-                    <div class="card-back">
-                        <a href="quiz4.html">Take Quiz 4</a>
-                    </div>
+                    <a href="erosion-info.html" class="card-back">
+                    </a>
                 </div>
             </div>
     
-            <div class="image-container">
-                <div class="card">
-                    <div class="card-front" style="background-color: #ffd633;">
-                        <p>Quiz 5</p>
-                    </div>
-                    <div class="card-back">
-                        <a href="quiz5.html">Take Quiz 5</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -173,6 +159,9 @@
                 <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
             </svg>
         </div>
+
+        <div class="swirl"></div>
+        <div class="worm"></div>
 
         <div class="spacer">
             
@@ -270,7 +259,7 @@
         });
     </script>    
     <section id="map-section">
-        <h2>Erosion Rate Map</h2>
+        <h2 class="header-text">Erosion Rate Map</h2>
     
         <div id="map"></div> <!-- Map Container -->
 

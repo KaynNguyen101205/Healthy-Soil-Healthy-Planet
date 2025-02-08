@@ -59,9 +59,9 @@ document.addEventListener("DOMContentLoaded", async function () {
                 datasets: [{
                     label: `Erosion Rate (${startYear} - ${endYear})`,
                     data: erosionRates,
-                    textcolor: "rgba(255, 99, 132, 0.6)",
-                    backgroundColor: "rgba(255, 99, 132, 0.6)",
-                    borderColor: "rgba(255, 99, 132, 1)",
+                    // textcolor: "rgba(255, 247, 99, 0.6)",
+                    backgroundColor: "rgba(255, 250, 99, 0.6)",
+                    borderColor: "rgb(255, 221, 99)",
                     borderWidth: 2,
                     fill: true
                 }]
@@ -72,6 +72,10 @@ document.addEventListener("DOMContentLoaded", async function () {
                 plugins: {
                     legend: {
                         labels: {
+                            font: {
+                                family: "Arial", // ✅ Custom Font
+                                size: 14
+                            },
                             color: "white" // ✅ Change legend text color to white
                         }
                     }
@@ -82,15 +86,41 @@ document.addEventListener("DOMContentLoaded", async function () {
                             color: "white",  // ✅ Corrected
                             autoSkip: false,
                             maxRotation: 0,
-                            minRotation: 0
+                            minRotation: 0,
+                            font: {
+                                family: "Arial", // ✅ Custom Font for X-Axis
+                                size: 12
+                            }
                         },
+                        title: {
+                            display: true,
+                            text: "Year",  // ✅ X-Axis Label
+                            color: "white",
+                            font: {
+                                family: "Arial",
+                                size: 14
+                            }
+                        }
                     },
                     y: {
                         beginAtZero: true,
                         ticks: {
                             color: "white",  // ✅ Corrected
+                            font: {
+                                family: "Arial", // ✅ Custom Font for X-Axis
+                                size: 12
+                            },
                             callback: value => value.toLocaleString()
                         },
+                        title: {
+                            display: true,
+                            text: "Erosion Rate (m/year)",  // ✅ Y-Axis Label
+                            color: "white",
+                            font: {
+                                family: "Arial",
+                                size: 14
+                            }
+                        }
                     }
                 }
             }
