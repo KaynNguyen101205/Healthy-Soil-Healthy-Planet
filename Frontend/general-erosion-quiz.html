@@ -4,8 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>General Erosion Quiz</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="data:,">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e9f5e1, #d0e4c6); /* Light green gradient */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .quiz-container {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
+            border: 3px solid #367c2b; /* John Deere green */
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M50 0v100M0 50h100' stroke='%23e0e7ff' stroke-width='2'/%3E%3C/svg%3E"); /* Subtle grid texture */
+        }
+
+        h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.5rem;
+            color: #367c2b; /* John Deere green */
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-questions {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quiz-questions li {
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-questions p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options li {
+            margin: 0.5rem 0;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.75rem;
+            border-radius: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .options label:hover {
+            background: #e0e7ff;
+            transform: translateX(5px);
+            border-color: #367c2b; /* John Deere green */
+        }
+
+        .options input[type="radio"] {
+            margin-right: 1rem;
+            accent-color: #367c2b; /* John Deere green */
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #ffcc00; /* John Deere yellow */
+            color: #333;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .submit-button:hover {
+            background: #e6b800; /* Darker yellow */
+        }
+
+        .quiz-result {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            color: #367c2b; /* John Deere green */
+        }
+
+        .info-button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: #367c2b; /* John Deere green */
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .info-button:hover {
+            background: #2a5f22; /* Darker green */
+        }
+    </style>
 </head>
 <body>
 

@@ -1,11 +1,19 @@
+.body{
+    background-color: #007bff;
+}
 .comment-section {
+    
     width: 50%;
     margin: auto;
     font-family: Arial, sans-serif;
 }
 
+.text1 {
+    text-align:center;
+}
+
 .input-container {
-    background: #f8f9fa;
+    background: #007bff
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -27,7 +35,7 @@ textarea {
 }
 
 button {
-    background: #007bff;
+    background: #77B254;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -37,7 +45,7 @@ button {
 }
 
 button:hover {
-    background: #0056b3;
+    background: #123524;
 }
 
 /* Styling for the Question List */
@@ -64,6 +72,7 @@ li img {
 }
 
 .question-container {
+    
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -80,7 +89,8 @@ li img {
 
 .question-box {
     background: #ffffff;
-    border: 2px solid #007bff;
+    border: 2px solid #77B254;
+    margin-bottom:10px;
     padding: 15px;
     border-radius: 5px;
     font-size: 16px;
@@ -89,6 +99,7 @@ li img {
 
 /* ✅ Answer Box (Now Below the Question) */
 .answer-box {
+    
     background: #f8f8f8;
     border-left: 5px solid #28a745;
     padding: 10px;
@@ -99,6 +110,7 @@ li img {
 
 /* ✏️ Answer Input Box (Initially Hidden) */
 .answer-input-box {
+    
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -127,4 +139,30 @@ li img {
 
 .answer-input-box button:hover {
     background: #218838;
+}
+
+.upvote-button {
+    background: #ffcc00;
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.upvote-button:hover {
+    background: #ff9900;
+}
+
+.search-box {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }

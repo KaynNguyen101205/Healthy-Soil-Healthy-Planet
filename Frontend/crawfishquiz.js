@@ -1,6 +1,5 @@
 function checkAnswers() {
-    // Correct Answers
-    const correctAnswers = {
+    const answers = {
         q1: "B",
         q2: "C",
         q3: "A",
@@ -11,17 +10,16 @@ function checkAnswers() {
     };
 
     let score = 0;
-    let totalQuestions = Object.keys(correctAnswers).length;
+    const totalQuestions = Object.keys(answers).length;
 
-    for (let key in correctAnswers) {
-        let selectedAnswer = document.querySelector(`input[name="${key}"]:checked`);
-        if (selectedAnswer) {
-            if (selectedAnswer.value === correctAnswers[key]) {
-                score++;
-            }
+    for (let i = 1; i <= totalQuestions; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected && selected.value === answers[`q${i}`]) {
+            score++;
         }
     }
 
-    let resultText = `You got ${score} out of ${totalQuestions} correct.`;
-    document.getElementById("result").innerHTML = resultText;
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = `You scored ${score} out of ${totalQuestions}!`;
+    resultDiv.style.color = score === totalQuestions ? "#367c2b" : "#E74C3C"; /* Green for success, red for failure */
 }

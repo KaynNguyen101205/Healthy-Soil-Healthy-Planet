@@ -28,33 +28,30 @@ function loadQuestions() {
     fetch("http://localhost:8002/questions/")
     .then(response => response.json())
     .then(data => {
-        let questionList = document.getElementById("question-list");
+        const questionList = document.getElementById("question-list");
         questionList.innerHTML = "";
 
         data.forEach(question => {
-            let listItem = document.createElement("li");
+            const listItem = document.createElement("div");
             listItem.classList.add("question-item");
 
-            // ✅ Wrapping each question and answer separately
             listItem.innerHTML = `
                 <div class="question-container">
-                    <!-- 🎤 Question Box -->
                     <div class="question-box">
                         <p><strong>${question.username} asks:</strong></p>
                         <p>${question.question_text}</p>
                         <button onclick="toggleAnswerBox(${question.id})">💬 Answer</button>
                     </div>
 
-                    <!-- ✏️ Answer Input (Hidden Initially) -->
                     <div id="answer-box-${question.id}" class="answer-input-box" style="display:none;">
                         <input type="text" id="answer-input-${question.id}" placeholder="Your answer...">
                         <button onclick="submitAnswer(${question.id})">Submit Answer</button>
                     </div>
 
-                    <!-- ✅ Answer Box (Below Question) -->
                     <div class="answer-box">
                         <p><strong>Answer:</strong></p>
                         <p>${question.answer_text ? question.answer_text : "<i>No answer yet.</i>"}</p>
+                        <button id="upvote-${question.id}" class="upvote-button" onclick="upvoteAnswer(${question.id})">👍 Upvote (${question.upvotes})</button>
                     </div>
                 </div>
             `;
@@ -65,7 +62,7 @@ function loadQuestions() {
     .catch(error => console.error("Error fetching questions:", error));
 }
 
-// ✅ Toggle Answer Input Below the Question
+
 function toggleAnswerBox(questionId) {
     let answerBox = document.getElementById(`answer-box-${questionId}`);
     answerBox.style.display = (answerBox.style.display === "none") ? "block" : "none";
@@ -90,6 +87,103 @@ function submitAnswer(questionId) {
     })
     .catch(error => console.error("Error submitting answer:", error));
 }
-// ✅ Load questions when page loads
-document.addEventListener("DOMContentLoaded", loadQuestions);
+function upvoteAnswer(questionId) {
+    fetch(`http://localhost:8002/questions/${questionId}/upvote/`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Upvote successful:", data);
+        refreshUpvoteCount(questionId, data.upvotes); // ✅ Update count without full reload
+    })
+    .catch(error => console.error("Error upvoting answer:", error));
+}   
+function upvoteQuestion(questionId) {
+    fetch(`http://localhost:8002/questions/${questionId}/upvote/`, { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Upvote successful:", data);
+            refreshUpvoteCount(questionId, data.upvotes); // Update UI without full reload
+        })
+        .catch(error => console.error("Error upvoting:", error));
+}
 
+// Function to update upvote count without reloading all questions
+function refreshUpvoteCount(questionId, newUpvoteCount) {
+    const upvoteElement = document.querySelector(`#upvote-${questionId}`);
+    if (upvoteElement) {
+        upvoteElement.innerText = `👍 Upvotes: ${newUpvoteCount}`;
+    }
+}
+document.addEventListener("DOMContentLoaded", loadQuestions);
+function searchQuestions() {
+    let searchQuery = document.getElementById("search-input").value.trim();
+
+    if (searchQuery.length === 0) {
+        loadQuestions(); // ✅ Reload all questions if search is empty
+        return;
+    }
+
+    fetch(`http://localhost:8002/search/?query=${encodeURIComponent(searchQuery)}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("No results found");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Search results:", data);
+            displayQuestions(data); // ✅ Make sure this function exists
+        })
+        .catch(error => {
+            console.error("Error searching questions:", error);
+            document.getElementById("question-list").innerHTML = `<p>No questions found.</p>`;
+        });
+}
+
+// ✅ Attach event listener for live search
+document.getElementById("search-input").addEventListener("input", searchQuestions);
+
+function displayQuestions(questions) {
+    const questionList = document.getElementById("question-list");
+    questionList.innerHTML = ""; // ✅ Clear previous results
+
+    if (questions.length === 0) {
+        questionList.innerHTML = "<p>No questions found.</p>";
+        return;
+    }
+
+    questions.forEach(question => {
+        const listItem = document.createElement("div");
+        listItem.classList.add("question-item");
+
+        listItem.innerHTML = `
+            <div class="question-container">
+                <div class="question-box">
+                    <p><strong>${question.username} asks:</strong></p>
+                    <p>${question.question_text}</p>
+                    <button onclick="toggleAnswerBox(${question.id})">💬 Answer</button>
+                </div>
+
+                <div id="answer-box-${question.id}" class="answer-input-box" style="display:none;">
+                    <input type="text" id="answer-input-${question.id}" placeholder="Your answer...">
+                    <button onclick="submitAnswer(${question.id})">Submit Answer</button>
+                </div>
+
+                <div class="answer-box">
+                    <p><strong>Answer:</strong></p>
+                    <p>${question.answer_text ? question.answer_text : "<i>No answer yet.</i>"}</p>
+                    <button id="upvote-${question.id}" class="upvote-button" onclick="upvoteAnswer(${question.id})">👍 Upvote (${question.upvotes})</button>
+                </div>
+            </div>
+        `;
+
+        questionList.appendChild(listItem);
+    });
+}

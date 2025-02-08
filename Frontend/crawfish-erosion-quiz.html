@@ -4,74 +4,219 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crawfish & Soil Erosion Quiz</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e9f5e1, #d0e4c6); /* Light green gradient */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .quiz-container {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
+            border: 3px solid #367c2b; /* John Deere green */
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M50 0v100M0 50h100' stroke='%23e0e7ff' stroke-width='2'/%3E%3C/svg%3E"); /* Subtle grid texture */
+        }
+
+        h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.5rem;
+            color: #367c2b; /* John Deere green */
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-questions {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quiz-questions li {
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-questions p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options li {
+            margin: 0.5rem 0;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.75rem;
+            border-radius: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .options label:hover {
+            background: #e0e7ff;
+            transform: translateX(5px);
+            border-color: #367c2b; /* John Deere green */
+        }
+
+        .options input[type="radio"] {
+            margin-right: 1rem;
+            accent-color: #367c2b; /* John Deere green */
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #ffcc00; /* John Deere yellow */
+            color: #333;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .submit-button:hover {
+            background: #e6b800; /* Darker yellow */
+        }
+
+        .quiz-result {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            color: #367c2b; /* John Deere green */
+        }
+
+        .info-button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: #367c2b; /* John Deere green */
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .info-button:hover {
+            background: #2a5f22; /* Darker green */
+        }
+    </style>
 </head>
 <body>
-
     <div class="quiz-container">
-        <h2>Crawfish & Soil Erosion Quiz</h2>
-        <p>Select the correct answers and click "Submit" to see your score.</p>
+        <h1>Crawfish & Soil Erosion Quiz</h1>
+        <p class="subtitle">Select the correct answers and click "Submit" to see your score.</p>
 
         <form id="quizForm">
-            <ol>
-                <li>How do crawfish burrows contribute to soil erosion?</li>
-                <ul>
-                    <li><input type="radio" name="q1" value="A"> A) They help compact the soil, making it stronger</li>
-                    <li><input type="radio" name="q1" value="B"> B) Their burrows create tunnels that weaken soil structure</li>
-                    <li><input type="radio" name="q1" value="C"> C) Crawfish eat plant roots, making soil stronger</li>
-                    <li><input type="radio" name="q1" value="D"> D) They do not affect soil erosion at all</li>
-                </ul>
+            <ol class="quiz-questions">
+                <li>
+                    <p>How do crawfish burrows contribute to soil erosion?</p>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q1" value="A"> <span>A) They help compact the soil, making it stronger</span></label></li>
+                        <li><label><input type="radio" name="q1" value="B"> <span>B) Their burrows create tunnels that weaken soil structure</span></label></li>
+                        <li><label><input type="radio" name="q1" value="C"> <span>C) Crawfish eat plant roots, making soil stronger</span></label></li>
+                        <li><label><input type="radio" name="q1" value="D"> <span>D) They do not affect soil erosion at all</span></label></li>
+                    </ul>
+                </li>
 
-                <li>Why are crawfish burrows particularly problematic in levees and irrigation systems?</li>
-                <ul>
-                    <li><input type="radio" name="q2" value="A"> A) They provide shelter for other aquatic species</li>
-                    <li><input type="radio" name="q2" value="B"> B) They make the soil more compact and less permeable</li>
-                    <li><input type="radio" name="q2" value="C"> C) They weaken the soil, leading to collapses during floods</li>
-                    <li><input type="radio" name="q2" value="D"> D) They increase the water retention of the soil</li>
-                </ul>
+                <li>
+                    <p>Why are crawfish burrows particularly problematic in levees and irrigation systems?</p>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q2" value="A"> <span>A) They provide shelter for other aquatic species</span></label></li>
+                        <li><label><input type="radio" name="q2" value="B"> <span>B) They make the soil more compact and less permeable</span></label></li>
+                        <li><label><input type="radio" name="q2" value="C"> <span>C) They weaken the soil, leading to collapses during floods</span></label></li>
+                        <li><label><input type="radio" name="q2" value="D"> <span>D) They increase the water retention of the soil</span></label></li>
+                    </ul>
+                </li>
 
-                <li>How do crawfish burrows affect water flow in wetlands and rice fields?</li>
-                <ul>
-                    <li><input type="radio" name="q3" value="A"> A) They create channels that increase water movement and soil displacement</li>
-                    <li><input type="radio" name="q3" value="B"> B) They filter water, reducing erosion and stabilizing the soil</li>
-                    <li><input type="radio" name="q3" value="C"> C) They block water flow, preventing soil erosion</li>
-                    <li><input type="radio" name="q3" value="D"> D) They have no effect on water movement</li>
-                </ul>
+                <li>
+                    <p>How do crawfish burrows affect water flow in wetlands and rice fields?</p>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q3" value="A"> <span>A) They create channels that increase water movement and soil displacement</span></label></li>
+                        <li><label><input type="radio" name="q3" value="B"> <span>B) They filter water, reducing erosion and stabilizing the soil</span></label></li>
+                        <li><label><input type="radio" name="q3" value="C"> <span>C) They block water flow, preventing soil erosion</span></label></li>
+                        <li><label><input type="radio" name="q3" value="D"> <span>D) They have no effect on water movement</span></label></li>
+                    </ul>
+                </li>
 
-                <li>Why do invasive crawfish species, such as the Red Swamp Crayfish, worsen soil erosion?</li>
-                <ul>
-                    <li><input type="radio" name="q4" value="A"> A) They aerate the soil, reducing erosion</li>
-                    <li><input type="radio" name="q4" value="B"> B) They burrow extensively and disturb plant roots that hold soil together</li>
-                    <li><input type="radio" name="q4" value="C"> C) They feed on other invasive species, balancing the ecosystem</li>
-                    <li><input type="radio" name="q4" value="D"> D) They only live in water and do not affect soil erosion</li>
-                </ul>
+                <li>
+                    <p>Why do invasive crawfish species, such as the Red Swamp Crayfish, worsen soil erosion?</p>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q4" value="A"> <span>A) They aerate the soil, reducing erosion</span></label></li>
+                        <li><label><input type="radio" name="q4" value="B"> <span>B) They burrow extensively and disturb plant roots that hold soil together</span></label></li>
+                        <li><label><input type="radio" name="q4" value="C"> <span>C) They feed on other invasive species, balancing the ecosystem</span></label></li>
+                        <li><label><input type="radio" name="q4" value="D"> <span>D) They only live in water and do not affect soil erosion</span></label></li>
+                    </ul>
+                </li>
 
-                <li>What is a major consequence of increased sediment runoff caused by crawfish burrowing?</li>
-                <ul>
-                    <li><input type="radio" name="q5" value="A"> A) Improved water quality and better fish populations</li>
-                    <li><input type="radio" name="q5" value="B"> B) Clogged waterways, lower water quality, and negative effects on fish</li>
-                    <li><input type="radio" name="q5" value="C"> C) Enhanced crop growth due to nutrient-rich sediment</li>
-                    <li><input type="radio" name="q5" value="D"> D) Reduction in flooding risks due to better drainage</li>
-                </ul>
+                <li>
+                    <p>What is a major consequence of increased sediment runoff caused by crawfish burrowing?</p>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q5" value="A"> <span>A) Improved water quality and better fish populations</span></label></li>
+                        <li><label><input type="radio" name="q5" value="B"> <span>B) Clogged waterways, lower water quality, and negative effects on fish</span></label></li>
+                        <li><label><input type="radio" name="q5" value="C"> <span>C) Enhanced crop growth due to nutrient-rich sediment</span></label></li>
+                        <li><label><input type="radio" name="q5" value="D"> <span>D) Reduction in flooding risks due to better drainage</span></label></li>
+                    </ul>
+                </li>
 
-                <li>Which of the following is a recommended strategy to reduce erosion from crawfish?</li>
-                <ul>
-                    <li><input type="radio" name="q6" value="A"> A) Removing all crawfish from wetland areas</li>
-                    <li><input type="radio" name="q6" value="B"> B) Planting erosion-resistant vegetation near water bodies</li>
-                    <li><input type="radio" name="q6" value="C"> C) Allowing crawfish populations to grow uncontrolled</li>
-                    <li><input type="radio" name="q6" value="D"> D) Draining wetlands to eliminate burrowing habitats</li>
-                </ul>
+                <li>
+                    <p>Which of the following is a recommended strategy to reduce erosion from crawfish?</p>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q6" value="A"> <span>A) Removing all crawfish from wetland areas</span></label></li>
+                        <li><label><input type="radio" name="q6" value="B"> <span>B) Planting erosion-resistant vegetation near water bodies</span></label></li>
+                        <li><label><input type="radio" name="q6" value="C"> <span>C) Allowing crawfish populations to grow uncontrolled</span></label></li>
+                        <li><label><input type="radio" name="q6" value="D"> <span>D) Draining wetlands to eliminate burrowing habitats</span></label></li>
+                    </ul>
+                </li>
 
-                <li>Why is crawfish-related erosion a major concern in Louisiana’s coastal wetlands?</li>
-                <ul>
-                    <li><input type="radio" name="q7" value="A"> A) Louisiana's wetlands are naturally resistant to erosion</li>
-                    <li><input type="radio" name="q7" value="B"> B) The Red Swamp Crayfish does not burrow in coastal areas</li>
-                    <li><input type="radio" name="q7" value="C"> C) Erosion and land loss are already severe issues in the region</li>
-                    <li><input type="radio" name="q7" value="D"> D) Wetland plants easily recover from crawfish disturbances</li>
-                </ul>
+                <li>
+                    <p>Why is crawfish-related erosion a major concern in Louisiana’s coastal wetlands?</p>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q7" value="A"> <span>A) Louisiana's wetlands are naturally resistant to erosion</span></label></li>
+                        <li><label><input type="radio" name="q7" value="B"> <span>B) The Red Swamp Crayfish does not burrow in coastal areas</span></label></li>
+                        <li><label><input type="radio" name="q7" value="C"> <span>C) Erosion and land loss are already severe issues in the region</span></label></li>
+                        <li><label><input type="radio" name="q7" value="D"> <span>D) Wetland plants easily recover from crawfish disturbances</span></label></li>
+                    </ul>
+                </li>
             </ol>
 
-            <button type="button" onclick="checkAnswers()">Submit</button>
+            <button type="button" class="submit-button" onclick="checkAnswers()">Submit</button>
         </form>
 
         <div id="result" class="quiz-result"></div>
@@ -79,7 +224,32 @@
         <a href="parallaxhtml.html" class="info-button">Back to Home</a>
     </div>
 
-    <script src="crawfishquiz.js"></script>
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: "B",
+                q2: "C",
+                q3: "A",
+                q4: "B",
+                q5: "B",
+                q6: "B",
+                q7: "C"
+            };
 
+            let score = 0;
+            const totalQuestions = Object.keys(answers).length;
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === answers[`q${i}`]) {
+                    score++;
+                }
+            }
+
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `You scored ${score} out of ${totalQuestions}!`;
+            resultDiv.style.color = score === totalQuestions ? "#367c2b" : "#E74C3C"; /* Green for success, red for failure */
+        }
+    </script>
 </body>
 </html>

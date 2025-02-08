@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, Depends, HTTPException, Query
 from sqlalchemy import create_engine, Column, Integer, String, Text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
@@ -30,6 +30,7 @@ class Question(Base):
     username = Column(String, nullable=False)  # ✅ Ensure username is stored
     question_text = Column(Text, nullable=False)
     answer_text = Column(Text, nullable=True)
+    upvotes = Column(Integer, default=0) 
 
 # Create the table
 Base.metadata.create_all(bind=engine)
@@ -55,6 +56,7 @@ class QuestionResponse(BaseModel):
     username: str
     question_text: str
     answer_text: Optional[str] = None
+    upvotes: int = 0
     class Config:
         orm_mode = True
 
@@ -68,13 +70,15 @@ def add_question(question: QuestionCreate, db: Session = Depends(get_db)):
     return new_question
 
 # ✅ Fetch all questions including usernames
-@app.get("/questions/", response_model=List[QuestionResponse])
+@app.get("/questions/")
 def get_questions(db: Session = Depends(get_db)):
-    questions = db.query(Question).all()
-    for q in questions:
-        if q.answer_text is None:
-            q.answer_text = ""  # ✅ Convert None to an empty string
-    return questions
+    try:
+        # Explicitly sort by upvotes in descending order
+        questions = db.query(Question).order_by(Question.upvotes.desc(), Question.id.asc()).all()
+        return questions
+    except Exception as e:
+        print(f"Error retrieving questions: {e}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
 
 @app.post("/answers/{question_id}")
 def answer_question(question_id: int, answer: AnswerCreate, db: Session = Depends(get_db)):
@@ -92,3 +96,22 @@ def submit_question(question: QuestionCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_question)
     return new_question
+@app.post("/questions/{question_id}/upvote/")
+def upvote_answer(question_id: int, db: Session = Depends(get_db)):
+    question = db.query(Question).filter(Question.id == question_id).first()
+    if not question:
+        raise HTTPException(status_code=404, detail="Question not found")
+
+    question.upvotes = question.upvotes + 1 if question.upvotes else 1  # Fix possible NoneType error
+    db.commit()
+    db.refresh(question)
+
+    return {"message": "Upvote successful", "upvotes": question.upvotes}
+@app.get("/search/")
+def search_questions(query: str = Query(..., min_length=1), db: Session = Depends(get_db)):
+    results = db.query(Question).filter(Question.question_text.ilike(f"%{query}%")).order_by(Question.upvotes.desc()).all()
+
+    if not results:
+        return []  # ✅ Return empty list instead of error
+
+    return results
