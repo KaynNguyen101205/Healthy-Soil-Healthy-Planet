@@ -292,23 +292,40 @@
         </div>
     <section>
 
-    <section id="qa-section">
-        <h2>👨‍🌾 Ask Your Farming & Erosion Questions</h2>
-        <p>Have a question about soil erosion, crops, or farming techniques? Ask below and get answers from experts!</p>
+    <!-- <section id="qa-section">
+        <h2>👨‍🌾 Farming Q&A Forum</h2>
+        <p>Ask farming-related questions and get expert advice!</p>
     
         <div class="qa-container">
-            <h3>📩 Submit Your Question</h3>
-            <input type="text" id="question-input" placeholder="Type your question here..." />
+            <h3>📩 Ask a Question</h3>
+            <input type="text" id="username-input" placeholder="Your Name...">
+            <textarea id="question-input" placeholder="Type your question..."></textarea>
             <button onclick="submitQuestion()">Submit</button>
         </div>
     
         <div class="qa-list">
-            <h3>📜 Previously Asked Questions</h3>
+            <h3>📜 Questions & Answers</h3>
             <ul id="question-list">
                 <!-- Questions will appear here dynamically -->
             </ul>
         </div>
         <script src="qa.js"></script>
+    </section> -->
+
+
+    <section id="forum-box">
+        <h2>💬 Join the Farming Forum</h2>
+        <p>Ask questions and discuss farming techniques with other farmers.</p>
+        <button onclick="openForum()">Open Forum</button>
     </section>
+    
+    <script>
+        function openForum() {
+            window.open("http://127.0.0.1:8081/index.html", "_blank"); // Opens Q&A in a new tab
+        }
+    </script>
+    
+    <!-- Link the QA JavaScript -->
+    
 </body>
 </html>

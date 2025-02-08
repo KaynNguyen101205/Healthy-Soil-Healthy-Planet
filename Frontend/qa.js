@@ -1,48 +1,55 @@
-document.addEventListener("DOMContentLoaded", function () {
-    loadQuestions();
-});
-
-// Function to submit a question
 function submitQuestion() {
+    let usernameInput = document.getElementById("username-input");
     let questionInput = document.getElementById("question-input");
+
+    let username = usernameInput.value.trim();
     let questionText = questionInput.value.trim();
 
-    if (questionText === "") {
-        alert("Please enter a question before submitting!");
+    if (username === "" || questionText === "") {
+        alert("Please enter both your name and question!");
         return;
     }
 
-    let questionList = document.getElementById("question-list");
-
-    // Create a new list item
-    let listItem = document.createElement("li");
-    listItem.innerHTML = `<strong>Q:</strong> ${questionText}`;
-
-    // Append to the list
-    questionList.appendChild(listItem);
-
-    // Save question to local storage
-    saveQuestion(questionText);
-
-    // Clear the input field
-    questionInput.value = "";
-}
-
-// Function to save questions to local storage
-function saveQuestion(question) {
-    let questions = JSON.parse(localStorage.getItem("questions")) || [];
-    questions.push(question);
-    localStorage.setItem("questions", JSON.stringify(questions));
-}
-
-// Function to load questions from local storage
-function loadQuestions() {
-    let questions = JSON.parse(localStorage.getItem("questions")) || [];
-    let questionList = document.getElementById("question-list");
-
-    questions.forEach(question => {
-        let listItem = document.createElement("li");
-        listItem.innerHTML = `<strong>Q:</strong> ${question}`;
-        questionList.appendChild(listItem);
+    fetch("http://localhost:8002/questions/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: username, question_text: questionText })
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(err => { throw err });
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Question submitted:", data);
+        loadQuestions(); // Reload questions list after submission
+        usernameInput.value = "";
+        questionInput.value = "";
+    })
+    .catch(error => {
+        console.error("Error submitting question:", error);
+        alert("Failed to submit question. Please check the console for details.");
     });
 }
+
+function loadQuestions() {
+    fetch("http://localhost:8002/questions/")
+    .then(response => response.json())
+    .then(data => {
+        let questionList = document.getElementById("question-list");
+        questionList.innerHTML = ""; // Clear previous questions
+
+        data.forEach(question => {
+            let questionItem = document.createElement("li");
+
+            // ✅ Display the farmer's name correctly instead of "Q"
+            questionItem.innerHTML = `<b>${question.username}:</b> ${question.question_text}`;
+            questionList.appendChild(questionItem);
+        });
+    })
+    .catch(error => console.error("Error fetching questions:", error));
+}
+
+// ✅ Load questions when the page loads
+document.addEventListener("DOMContentLoaded", loadQuestions);

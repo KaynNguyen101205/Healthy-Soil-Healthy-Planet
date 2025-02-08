@@ -59,6 +59,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 datasets: [{
                     label: `Erosion Rate (${startYear} - ${endYear})`,
                     data: erosionRates,
+                    textcolor: "rgba(255, 99, 132, 0.6)",
                     backgroundColor: "rgba(255, 99, 132, 0.6)",
                     borderColor: "rgba(255, 99, 132, 1)",
                     borderWidth: 2,
@@ -69,15 +70,27 @@ document.addEventListener("DOMContentLoaded", async function () {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { display: true }
+                    legend: {
+                        labels: {
+                            color: "white" // ✅ Change legend text color to white
+                        }
+                    }
                 },
                 scales: {
                     x: {
-                        ticks: { autoSkip: false, maxRotation: 0, minRotation: 0 }
+                        ticks: {
+                            color: "white",  // ✅ Corrected
+                            autoSkip: false,
+                            maxRotation: 0,
+                            minRotation: 0
+                        },
                     },
                     y: {
                         beginAtZero: true,
-                        ticks: { callback: value => value.toLocaleString() }
+                        ticks: {
+                            color: "white",  // ✅ Corrected
+                            callback: value => value.toLocaleString()
+                        },
                     }
                 }
             }

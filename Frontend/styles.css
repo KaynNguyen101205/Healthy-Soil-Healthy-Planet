@@ -766,7 +766,7 @@ canvas {
 
 
 /* 📝 Farmer Q&A Section */
-#qa-section {
+/* #qa-section {
     padding: 50px 0;
     text-align: center;
     background-color: #f9f9f9;
@@ -782,12 +782,19 @@ canvas {
     text-align: center;
 }
 
-.qa-container input {
-    width: 80%;
+.qa-container input,
+.qa-container textarea {
+    width: 100%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
+}
+
+.qa-container textarea {
+    height: 80px;
+    resize: none;
 }
 
 .qa-container button {
@@ -819,4 +826,40 @@ canvas {
     padding: 10px;
     margin: 5px 0;
     border-radius: 5px;
+} */
+
+/* 🗨️ Forum Box Styling */
+#forum-box {
+    text-align: center;
+    background: #f8f9fa;
+    padding: 20px;
+    margin: 30px auto;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#forum-box h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+#forum-box p {
+    font-size: 16px;
+    color: #555;
+}
+
+#forum-box button {
+    background: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#forum-box button:hover {
+    background: #0056b3;
 }

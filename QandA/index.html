@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q&A for Farmers</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Farming Questions & Answers</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="comment-section">
+        <h2>🌾 Ask a Farming Question</h2>
+        <div class="input-container">
+            <input type="text" id="username-input" placeholder="Your Name..." required>
+            <textarea id="question-input" placeholder="Type your question..." required></textarea>
+            <button onclick="submitQuestion()">Submit</button>
+        </div>
 
-    <div class="qa-container">
-        <h2>👨‍🌾 Ask a Farming Question</h2>
-        <input type="text" id="question-input" placeholder="Type your question...">
-        <button onclick="submitQuestion()">Submit</button>
-    </div>
-
-    <div class="qa-list">
-        <h2>📝 Questions & Answers</h2>
-        <ul id="question-list"></ul>  <!-- ✅ List where questions will be displayed -->
+        <h3>📜 Questions & Answers</h3>
+        <ul id="question-list"></ul>
     </div>
 
     <script src="qa.js"></script>
