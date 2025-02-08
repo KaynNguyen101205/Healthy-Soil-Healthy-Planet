@@ -910,10 +910,11 @@ canvas {
     border-radius: 5px;
 } */
 
-/* 🗨️ Forum Box Styling */
 #forum-box {
     text-align: center;
-    background: #f8f9fa;
+    background: url("farmhouse.jpg") ;
+    background-size: cover;
+    background-position: center;
     padding: 20px;
     margin: 30px auto;
     width: 50%;
@@ -922,13 +923,16 @@ canvas {
 }
 
 #forum-box h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 24px;
-    color: #333;
+    color: white;
 }
 
 #forum-box p {
-    font-size: 16px;
-    color: #555;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f9f9f9ce;
 }
 
 #forum-box button {
@@ -943,5 +947,53 @@ canvas {
 }
 
 #forum-box button:hover {
-    background: #0056b3;
+    background-color: darkblue;
+    transform: scale(1.05);
+}
+
+#team-box {
+    text-align: center;
+    background: url("NIGHT.jpg") ;
+    background-size: cover;
+    padding: 50px;
+    margin: 50px auto;
+    width: 70%; /* Increased width of the container */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.team-container {
+    display: flex;
+    justify-content: center; /* Centers the circles horizontally */
+    align-items: center;
+    gap: 10px; /* Space between circles */
+    
+    padding: 10px;
+}
+
+.team-member {
+    width: 150px; 
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white; 
+    transition: transform 0.3s ease;
+    
+}
+
+.team-member img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.teamtext {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 4rem;
+    font-weight: bold;
+    color: #f9f9f9ce;
+}
+
+.team-member:hover {
+    transform: translateY(-10px); /* Moves the image up by 10px */
 }
