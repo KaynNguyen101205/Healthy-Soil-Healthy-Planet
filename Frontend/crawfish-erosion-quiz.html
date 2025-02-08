@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crawfish & Soil Erosion Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h2>Crawfish & Soil Erosion Quiz</h2>
+        <p>Select the correct answers and click "Submit" to see your score.</p>
+
+        <form id="quizForm">
+            <ol>
+                <li>How do crawfish burrows contribute to soil erosion?</li>
+                <ul>
+                    <li><input type="radio" name="q1" value="A"> A) They help compact the soil, making it stronger</li>
+                    <li><input type="radio" name="q1" value="B"> B) Their burrows create tunnels that weaken soil structure</li>
+                    <li><input type="radio" name="q1" value="C"> C) Crawfish eat plant roots, making soil stronger</li>
+                    <li><input type="radio" name="q1" value="D"> D) They do not affect soil erosion at all</li>
+                </ul>
+
+                <li>Why are crawfish burrows particularly problematic in levees and irrigation systems?</li>
+                <ul>
+                    <li><input type="radio" name="q2" value="A"> A) They provide shelter for other aquatic species</li>
+                    <li><input type="radio" name="q2" value="B"> B) They make the soil more compact and less permeable</li>
+                    <li><input type="radio" name="q2" value="C"> C) They weaken the soil, leading to collapses during floods</li>
+                    <li><input type="radio" name="q2" value="D"> D) They increase the water retention of the soil</li>
+                </ul>
+
+                <li>How do crawfish burrows affect water flow in wetlands and rice fields?</li>
+                <ul>
+                    <li><input type="radio" name="q3" value="A"> A) They create channels that increase water movement and soil displacement</li>
+                    <li><input type="radio" name="q3" value="B"> B) They filter water, reducing erosion and stabilizing the soil</li>
+                    <li><input type="radio" name="q3" value="C"> C) They block water flow, preventing soil erosion</li>
+                    <li><input type="radio" name="q3" value="D"> D) They have no effect on water movement</li>
+                </ul>
+
+                <li>Why do invasive crawfish species, such as the Red Swamp Crayfish, worsen soil erosion?</li>
+                <ul>
+                    <li><input type="radio" name="q4" value="A"> A) They aerate the soil, reducing erosion</li>
+                    <li><input type="radio" name="q4" value="B"> B) They burrow extensively and disturb plant roots that hold soil together</li>
+                    <li><input type="radio" name="q4" value="C"> C) They feed on other invasive species, balancing the ecosystem</li>
+                    <li><input type="radio" name="q4" value="D"> D) They only live in water and do not affect soil erosion</li>
+                </ul>
+
+                <li>What is a major consequence of increased sediment runoff caused by crawfish burrowing?</li>
+                <ul>
+                    <li><input type="radio" name="q5" value="A"> A) Improved water quality and better fish populations</li>
+                    <li><input type="radio" name="q5" value="B"> B) Clogged waterways, lower water quality, and negative effects on fish</li>
+                    <li><input type="radio" name="q5" value="C"> C) Enhanced crop growth due to nutrient-rich sediment</li>
+                    <li><input type="radio" name="q5" value="D"> D) Reduction in flooding risks due to better drainage</li>
+                </ul>
+
+                <li>Which of the following is a recommended strategy to reduce erosion from crawfish?</li>
+                <ul>
+                    <li><input type="radio" name="q6" value="A"> A) Removing all crawfish from wetland areas</li>
+                    <li><input type="radio" name="q6" value="B"> B) Planting erosion-resistant vegetation near water bodies</li>
+                    <li><input type="radio" name="q6" value="C"> C) Allowing crawfish populations to grow uncontrolled</li>
+                    <li><input type="radio" name="q6" value="D"> D) Draining wetlands to eliminate burrowing habitats</li>
+                </ul>
+
+                <li>Why is crawfish-related erosion a major concern in Louisiana’s coastal wetlands?</li>
+                <ul>
+                    <li><input type="radio" name="q7" value="A"> A) Louisiana's wetlands are naturally resistant to erosion</li>
+                    <li><input type="radio" name="q7" value="B"> B) The Red Swamp Crayfish does not burrow in coastal areas</li>
+                    <li><input type="radio" name="q7" value="C"> C) Erosion and land loss are already severe issues in the region</li>
+                    <li><input type="radio" name="q7" value="D"> D) Wetland plants easily recover from crawfish disturbances</li>
+                </ul>
+            </ol>
+
+            <button type="button" onclick="checkAnswers()">Submit</button>
+        </form>
+
+        <div id="result" class="quiz-result"></div>
+
+        <a href="parallaxhtml.html" class="info-button">Back to Home</a>
+    </div>
+
+    <script src="crawfishquiz.js"></script>
+
+</body>
+</html>

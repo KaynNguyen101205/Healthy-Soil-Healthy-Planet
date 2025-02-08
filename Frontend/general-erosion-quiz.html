@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Erosion Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h2>General Erosion Quiz</h2>
+        <p>Select the correct answers and click "Submit" to see your score.</p>
+
+        <form id="quizForm">
+            <ol>
+                <li>What is erosion?</li>
+                <ul>
+                    <li><input type="radio" name="q1" value="A"> A) The process of rocks forming underground</li>
+                    <li><input type="radio" name="q1" value="B"> B) The movement of soil and rock by natural forces</li>
+                    <li><input type="radio" name="q1" value="C"> C) The breaking of rocks due to temperature changes</li>
+                    <li><input type="radio" name="q1" value="D"> D) The growth of new plant life</li>
+                </ul>
+
+                <li>Which of the following is the biggest cause of erosion?</li>
+                <ul>
+                    <li><input type="radio" name="q2" value="A"> A) Wind</li>
+                    <li><input type="radio" name="q2" value="B"> B) Water</li>
+                    <li><input type="radio" name="q2" value="C"> C) Gravity</li>
+                    <li><input type="radio" name="q2" value="D"> D) Ice</li>
+                </ul>
+
+                <li>How do glaciers cause erosion?</li>
+                <ul>
+                    <li><input type="radio" name="q3" value="A"> A) By breaking rocks with their weight</li>
+                    <li><input type="radio" name="q3" value="B"> B) By dragging rocks and soil as they move</li>
+                    <li><input type="radio" name="q3" value="C"> C) By freezing the ground permanently</li>
+                    <li><input type="radio" name="q3" value="D"> D) By creating large waves in the ocean</li>
+                </ul>
+
+                <li>What landform was created by river erosion over millions of years?</li>
+                <ul>
+                    <li><input type="radio" name="q4" value="A"> A) Sahara Desert</li>
+                    <li><input type="radio" name="q4" value="B"> B) Grand Canyon</li>
+                    <li><input type="radio" name="q4" value="C"> C) Mount Everest</li>
+                    <li><input type="radio" name="q4" value="D"> D) Amazon Rainforest</li>
+                </ul>
+
+                <li>Which of these human activities prevents erosion?</li>
+                <ul>
+                    <li><input type="radio" name="q5" value="A"> A) Cutting down trees</li>
+                    <li><input type="radio" name="q5" value="B"> B) Plowing land in straight lines</li>
+                    <li><input type="radio" name="q5" value="C"> C) Planting trees and grass</li>
+                    <li><input type="radio" name="q5" value="D"> D) Removing all plants from farmland</li>
+                </ul>
+
+                <li>Which type of erosion is most common in deserts?</li>
+                <ul>
+                    <li><input type="radio" name="q6" value="A"> A) Water erosion</li>
+                    <li><input type="radio" name="q6" value="B"> B) Wind erosion</li>
+                    <li><input type="radio" name="q6" value="C"> C) Glacier erosion</li>
+                    <li><input type="radio" name="q6" value="D"> D) Gravity erosion</li>
+                </ul>
+
+                <li>What farming technique helps slow down soil erosion?</li>
+                <ul>
+                    <li><input type="radio" name="q7" value="A"> A) No-till farming</li>
+                    <li><input type="radio" name="q7" value="B"> B) Clear-cutting forests</li>
+                    <li><input type="radio" name="q7" value="C"> C) Paving over the soil</li>
+                    <li><input type="radio" name="q7" value="D"> D) Spraying water everywhere</li>
+                </ul>
+
+                <li>How do ocean waves contribute to erosion?</li>
+                <ul>
+                    <li><input type="radio" name="q8" value="A"> A) They add new rocks to the shoreline</li>
+                    <li><input type="radio" name="q8" value="B"> B) They break down coastal cliffs and reshape beaches</li>
+                    <li><input type="radio" name="q8" value="C"> C) They prevent soil from moving</li>
+                    <li><input type="radio" name="q8" value="D"> D) They make land stronger against natural forces</li>
+                </ul>
+            </ol>
+
+            <button type="button" onclick="checkAnswers()">Submit</button>
+        </form>
+
+        <div id="result" class="quiz-result"></div>
+
+        <a href="parallaxhtml.html" class="info-button">Back to Home</a>
+    </div>
+
+    <script src="erosionquiz.js"></script>
+
+</body>
+</html>
