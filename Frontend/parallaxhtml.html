@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="graph.js"></script>
+
+    <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css" />
+    <script src="node_modules/leaflet/dist/leaflet.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illinois Erosion Rate Map</title>
+    
+    <!-- Leaflet.js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
 
@@ -47,12 +61,13 @@
         <a href="#section1" class="button">Home</a>
         <a href="#section2" class="button2">Images</a>
         <a href="#section3" class="button2">Graph</a>
+        <a href="#map-section" class="button">Erosion Map</a>
     </div>
     <div class="section1" id="section1">
         <div class="blob-container">
             <div class="introtext">Erosion is an issue.</div>
             <div class="introtext2">
-                The ocean is <span class="highlight">vital</span> to life on Earth, yet it's facing severe challenges. <span class="highlight">Pollution</span> threatens <span class="highlight">millions</span> of marine species. Together, we can make a difference.
+                Soil is <span class="highlight">vital</span> to life on Earth, yet it's facing severe challenges. <span class="highlight">Erosion</span> threatens fertile land, ecosystems, and food security. Together, we can make a <span class="highlight">difference</span>.
             </div>
             <a href="#section3" class="explore-button">Explore ↴</a>
         </div>
@@ -205,6 +220,12 @@
             }
         });
     </script>    
+    <section id="map-section">
+        <h2>Erosion Rate Map</h2>
     
+        <div id="map"></div> <!-- Map Container -->
+
+        <script src="map.js"></script> <!-- JavaScript File -->
+    </section>
 </body>
 </html>

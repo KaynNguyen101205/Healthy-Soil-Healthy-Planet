@@ -7,10 +7,8 @@ import pandas as pd
 from typing import List
 from pydantic import BaseModel
 
-# Initialize FastAPI **once**
 app = FastAPI()
 
-# Fix CORS middleware (Allow frontend requests)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:8080"],  # Restrict to frontend origin
