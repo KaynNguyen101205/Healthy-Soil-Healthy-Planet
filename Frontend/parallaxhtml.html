@@ -9,6 +9,8 @@
     <script src="graph.js"></script>
 </head>
 <body>
+
+
     <!-- <div id="chat-icon">💬</div> -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -48,47 +50,13 @@
     </div>
     <div class="section1" id="section1">
         <div class="blob-container">
-            <div id="typing-effect" class="introtext">
-                
-                <script>
-                    function typeText(elementId, texts, speed) {
-                        let element = document.getElementById(elementId);
-                        let index = 0;
-                        let textIndex = 0;
-                
-                        function type() {
-                            if (index === texts[textIndex].length) {
-                                element.innerHTML = "";
-                                index = 0;
-                                textIndex = (textIndex + 1) % texts.length; // Move to the next phrase, loop back to the first if at the end
-                            }
-                            
-                            element.innerHTML += texts[textIndex].charAt(index);
-                            index++;
-                            setTimeout(type, speed);
-                            const pauseDuration = 800;
-                        }
-                        type();
-                    }
-                
-                    window.onload = function() {
-                        const phrases = [
-                            "Save the Ocean, Heal the Planet!",
-                            "Together, We Can Protect Marine Life.",
-                            "Pollution is Killing Our Oceans.",
-                            "Join Us in the Fight for Clean Seas!"
-                        ];
-                        const speed = 150;
-                        typeText("typing-effect", phrases, speed);
-                    };
-                </script>
-            </div>
+            <div class="introtext">Erosion is an issue.</div>
             <div class="introtext2">
                 The ocean is <span class="highlight">vital</span> to life on Earth, yet it's facing severe challenges. <span class="highlight">Pollution</span> threatens <span class="highlight">millions</span> of marine species. Together, we can make a difference.
             </div>
             <a href="#section3" class="explore-button">Explore ↴</a>
         </div>
-        <img class="fishermangif" src="fisherman-unscreen.gif" alt="octopus blowing bubbles">
+        
         <div class="custom-shape-divider-bottom-1738222988">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
@@ -133,7 +101,7 @@
                 <input type="number" id="endYear" min="2005" max="2025" value="2025">
             </div>
             <div class="graph-container">
-                <canvas id="seaAnimalDeathsChart"></canvas>
+                <canvas id="erosionRateChart"></canvas>
             </div>
         </div>
     </div>

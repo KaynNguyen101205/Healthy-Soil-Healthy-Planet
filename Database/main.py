@@ -1,39 +1,89 @@
-from fastapi import FastAPI, Depends
-from sqlalchemy.orm import Session
-from database import SessionLocal, engine
-import models
+from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-# Initialize database tables
-models.Base.metadata.create_all(bind=engine)
+from sqlalchemy import create_engine, Column, Integer, String, Float
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, Session
+import pandas as pd
+from typing import List
+from pydantic import BaseModel
 
+# Initialize FastAPI **once**
 app = FastAPI()
 
-# Dependency to get database session
+# Fix CORS middleware (Allow frontend requests)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:8080"],  # Restrict to frontend origin
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
+
+# Database Configuration
+DATABASE_URL = "postgresql://namkhanh101205hi:namkhanh101205@localhost/erosion_db"
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
+
+# Define the Erosion Data Table
+class ErosionData(Base):
+    __tablename__ = "erosion_data"
+    id = Column(Integer, primary_key=True, index=True)
+    year = Column(Integer, nullable=False)
+    location = Column(String, nullable=False)
+    erosion_cause = Column(String, nullable=False)
+    erosion_rate = Column(Float, nullable=False)
+
+class ErosionDataSchema(BaseModel):
+    id: int
+    year: int
+    location: str
+    erosion_cause: str
+    erosion_rate: float
+
+    class Config:
+        orm_mode = True
+
+# Create the Table
+Base.metadata.create_all(bind=engine)
+
+# Dependency to get DB session
 def get_db():
     db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
-        
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
-# API: Fetch all records
-@app.get("/sea-animal-deaths/")
-def get_sea_animal_deaths(db: Session = Depends(get_db)):
-    return db.query(models.SeaAnimalDeaths).all()
+# API Endpoints
+@app.get("/erosion-data/", response_model=List[ErosionDataSchema])
+def get_erosion_data(db: Session = Depends(get_db)):
+    return db.query(ErosionData).all()
 
-# API: Fetch data filtered by year
-@app.get("/sea-animal-deaths/{year}")
-def get_sea_animal_deaths_by_year(year: int, db: Session = Depends(get_db)):
-    return db.query(models.SeaAnimalDeaths).filter(models.SeaAnimalDeaths.year == year).all()
+@app.post("/erosion-data/")
+def add_erosion_data(year: int, location: str, erosion_cause: str, erosion_rate: float, db: Session = Depends(get_db)):
+    new_entry = ErosionData(year=year, location=location, erosion_cause=erosion_cause, erosion_rate=erosion_rate)
+    db.add(new_entry)
+    db.commit()
+    db.refresh(new_entry)
+    return new_entry
 
-@app.get("/")
-def root():
-    return {"message": "API is running. Use /sea-animal-deaths/ to fetch data."}
+# Run the bulk insert after starting the server (optional)
+def bulk_insert_erosion_data():
+    csv_path = "/var/lib/postgresql/erosion_data.csv"
+    df = pd.read_csv(csv_path)
+    db = SessionLocal()
+    try:
+        for _, row in df.iterrows():
+            entry = ErosionData(
+                year=row["year"],
+                location=row["location"],
+                erosion_cause=row["erosion_cause"],
+                erosion_rate=row["erosion_rate"]
+            )
+            db.add(entry)
+        db.commit()
+    finally:
+        db.close()
+
+bulk_insert_erosion_data()

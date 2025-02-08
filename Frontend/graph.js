@@ -2,14 +2,22 @@ document.addEventListener("DOMContentLoaded", async function () {
     let chart; // Store the chart instance globally
     let allData = []; // Store all fetched data
 
-    async function fetchSeaAnimalDeaths() {
+    async function fetchErosionData() {
         try {
-            let response = await fetch("http://localhost:8000/sea-animal-deaths/");
+            let response = await fetch("http://localhost:8000/erosion-data/");
             let data = await response.json();
-            allData = data; // Store the complete dataset
+            
+            if (!Array.isArray(data) || data.length === 0) {
+                console.error("No erosion data received or incorrect format.");
+                alert("No data available to display.");
+                return;
+            }
+    
+            allData = data;
+            console.log("Fetched Data:", allData); // Debugging log
             updateGraph(); // Show default graph
         } catch (error) {
-            console.error("Error fetching sea animal deaths data:", error);
+            console.error("Error fetching erosion data:", error);
         }
     }
 
@@ -26,52 +34,50 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         let yearCounts = {};
         filteredData.forEach(entry => {
-            yearCounts[entry.year] = (yearCounts[entry.year] || 0) + entry.death_count;
+            yearCounts[entry.year] = (yearCounts[entry.year] || 0) + entry.erosion_rate;
         });
 
         let years = Object.keys(yearCounts).sort((a, b) => a - b);
-        let deathCounts = years.map(year => yearCounts[year]);
+        let erosionRates = years.map(year => yearCounts[year] || 0);
 
-        const ctx = document.getElementById("seaAnimalDeathsChart").getContext("2d");
+        const canvas = document.getElementById("erosionRateChart");
+        if (!canvas) {
+            console.error("Canvas not found! Make sure #erosionRateChart exists in the HTML.");
+            return;
+        }
+        const ctx = canvas.getContext("2d");
+
 
         if (chart) {
             chart.destroy();
         }
 
         chart = new Chart(ctx, {
-            type: "bar",
+            type: "line",
             data: {
                 labels: years,
                 datasets: [{
-                    label: `Sea Animal Deaths (${startYear} - ${endYear})`,
-                    data: deathCounts,
-                    backgroundColor: "rgba(54, 162, 235, 0.6)",
-                    borderColor: "rgba(54, 162, 235, 1)",
-                    borderWidth: 1
+                    label: `Erosion Rate (${startYear} - ${endYear})`,
+                    data: erosionRates,
+                    backgroundColor: "rgba(255, 99, 132, 0.6)",
+                    borderColor: "rgba(255, 99, 132, 1)",
+                    borderWidth: 2,
+                    fill: true
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { display: false } 
+                    legend: { display: true }
                 },
                 scales: {
                     x: {
-                        ticks: {
-                            autoSkip: false, 
-                            maxRotation: 0,
-                            minRotation: 0
-                        }
+                        ticks: { autoSkip: false, maxRotation: 0, minRotation: 0 }
                     },
                     y: {
                         beginAtZero: true,
-                        ticks: {
-                            stepSize: 100000, 
-                            callback: function(value) {
-                                return value.toLocaleString(); 
-                            }
-                        }
+                        ticks: { callback: value => value.toLocaleString() }
                     }
                 }
             }
@@ -81,5 +87,5 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.getElementById("startYear").addEventListener("change", updateGraph);
     document.getElementById("endYear").addEventListener("change", updateGraph);
 
-    fetchSeaAnimalDeaths();
+    fetchErosionData();
 });

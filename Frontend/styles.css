@@ -31,7 +31,7 @@ body {
     width: 100%;
     height: 100vh;
     position: absolute;
-    background: url("oceantop.jpg") ;
+    background: url("2028.jpg") ;
     background-size: cover;
 }
 
@@ -77,16 +77,15 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-left: -18vw;
-    margin-top: -18vh;
-    width: 65%;
-    height: 95%;
-    background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M748 714q-248 214-390 0t0-294q142-80 390 0t0 294Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22%23444cf7%22 d=%22M748 714q-248 214-390 0t0-294q142-80 390 0t0 294Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
-    background-size: cover; /* Make sure it covers the entire container */
+    margin-left: -10vw;
+    margin-top: 3%;
+    width: 55%;
+    height: 80%;
+    background-image: url('blob3.svg');
+    background-size: 80% auto; /* Scales width to 80% while keeping aspect ratio */
     background-position: center center; /* Center the background */
     background-repeat: no-repeat; /* Prevent repetition */
-    animation: slideUp 1.5s ease-out forwards;
-
+    transition: background-image 1s ease-in-out; /* Add transition to animate the background */
 }
 
 @keyframes slideUp {
@@ -101,15 +100,15 @@ body {
 }
 
 .highlight {
-    color: #00b4d8;  /* Change to your preferred color */
+    color: #FFE8B6;  /* Change to your preferred color */
     font-weight: bold; /* Optional: Makes it stand out more */
 }
 
 .explore-button {
     position: absolute; /* Allows free movement */
-    top: 78%; /* Adjust as needed to position vertically */
-    left: 45%; /* Adjust as needed to position horizontally */
-    background-color: #00b4d8;
+    top: 68%; /* Adjust as needed to position vertically */
+    left: 35%; /* Adjust as needed to position horizontally */
+    background-color: #77B254;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -124,7 +123,7 @@ body {
 }
 
 .explore-button:hover {
-    background-color: #0077b6;
+    background-color: #123524;
     transform: scale(1.05);
 }
 
@@ -133,14 +132,12 @@ body {
     font-family: 'Franklin Gothic Heavy';
     text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
     position: absolute; /* Allows free movement */
-    top: 40%; /* Adjust as needed to position vertically */
-    left: 35%; /* Adjust as needed to position horizontally */
+    top: 15%; /* Adjust as needed to position vertically */
+    left: 30%; /* Adjust as needed to position horizontally */
     width: 50%; /* Adjust width of the text content */
     font-size: 8vh;
     /* overflow: hidden; */
 }
-
-
 
 
 .introtext2 {
@@ -149,8 +146,8 @@ body {
     font-family: 'Franklin Gothic Heavy';
     text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
     position: absolute; /* Allows free movement */
-    top: 60%; /* Adjust as needed to position vertically */
-    left: 35%; /* Adjust as needed to position horizontally */
+    top: 40%; /* Adjust as needed to position vertically */
+    left: 30%; /* Adjust as needed to position horizontally */
     width: 40%; /* Adjust width of the text content */
 
 }
@@ -217,7 +214,7 @@ body {
 }
 
 .custom-shape-divider-top-1738221980 .shape-fill {
-    fill: #0066FF;
+    fill: #5B913B;
 }
 
 
@@ -239,7 +236,7 @@ body {
 }
 
 .custom-shape-divider-bottom-1738222988 .shape-fill {
-    fill: #0066FF;
+    fill: #5B913B;
 }
 
 
@@ -263,7 +260,7 @@ body {
 
 /* Button Styling */
 .button {
-    background-color: #00b4d8;
+    background-color: #77B254;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -297,11 +294,11 @@ body {
 
 /* Button Hover Effect */
 .button:hover {
-    background-color: #0077b6;
+    background-color: #3E7B27;
     transform: scale(1.05);
 }
 .button2:hover {
-    background-color: #0077b6;
+    background-color: #3E7B27;
     transform: scale(1.05);
 }
 
@@ -500,7 +497,7 @@ body {
     justify-content: center;
     overflow: hidden;
 }
-.seaAnimalDeathsChart {
+.erosionRateChart {
     width: 100% !important;
     max-width: 800px;
     height: 100% !important;
